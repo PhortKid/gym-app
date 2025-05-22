@@ -102,6 +102,11 @@
           </a>
         </li>
         <li class="menu-item">
+          <a href="/financial_report" class="menu-link">
+            <div class="text-truncate">Financial Report</div>
+          </a>
+        </li>
+        <li class="menu-item">
           <a href="/invoice" class="menu-link">
             <div class="text-truncate">Invoice</div>
           </a>
