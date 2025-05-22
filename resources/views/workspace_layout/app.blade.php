@@ -175,7 +175,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <h6 class="mb-0">Mauna Belius</h6>
+                            <h6 class="mb-0"></h6>
                             <small class="text-body-secondary">Admin</small>
                           </div>
                         </div>
@@ -194,9 +194,10 @@
                       <div class="dropdown-divider my-1"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="javascript:void(0);">
-                        <i class="icon-base bx bx-power-off icon-md me-3"></i><span>Log Out</span>
-                      </a>
+                    <a href="{{ route('signout') }}" class="d-flex align-items-center">
+                      <i class="icon-base bx bx-power-off icon-md me-3"></i>
+                      <span>Log Out</span>
+                    </a>
                     </li>
                   </ul>
                 </li>
@@ -248,7 +249,8 @@
  
     <!-- Core JS -->
 
-   
+
+
     <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
 
     <script src="{{asset('assets/vendor/libs/popper/popper.js')}}"></script>

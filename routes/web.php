@@ -48,7 +48,7 @@ Route::view('financial_report','workspace.reports.financial_report');
 Route::view('income_category','workspace.income_category.index');
 Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
-Route::view('signin','signin');
+Route::view('signin', 'signin')->name('signin');
 
 
 use Illuminate\Support\Facades\Mail;
@@ -68,7 +68,13 @@ Route::get('/myqrcode/{id}', function (Request $request,$id) {
  
  });
 
+ Route::get('/signout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
 
+    return redirect('/signin');  
+})->name('signout');
 
 
 

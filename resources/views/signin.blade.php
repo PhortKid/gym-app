@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  {{-- <meta name="csrf-token" content="{{ csrf_token() }}">--}} 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{asset('assets/vendor/css/core.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}" />
 
 </head>
 <body>
-{{-- 
-<div class="login-card">
-    <div class="logo">
-        <img src="{{ asset('images/logo.png') }}" alt="App Logo">
-    </div>--}}
+
 
     <div class="container-xxl">
   <div class="authentication-wrapper authentication-basic container-p-y">
@@ -73,17 +69,7 @@
 </div>
 
 
-{{--
-    <h3>Login</h3>
-    <form id="loginForm">
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Login</button>
-    </form>
 
-    <p id="message" style="color: red; margin-top: 10px;"></p>
-</div>
---}}
 
 
 <script>

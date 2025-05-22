@@ -168,4 +168,9 @@ Route::get('/reports/expense-summary', [ReportController::class, 'expenseSummary
 
 Route::post('/signin', [SigninController::class, 'login']);
 
-
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return response()->json(['message' => 'Logged out successfully']);
+});
