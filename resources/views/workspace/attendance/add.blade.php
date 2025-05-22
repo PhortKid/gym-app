@@ -10,7 +10,7 @@
       <!-- Name -->
       <div class="col-sm-12 form-controlm">
         <label class="form-label" for="name">Member</label>
-           <select name="" id="member_id" class="form-control js-example-basic-single">
+           <select name="" id="member_id" class="form-control chosen-select">
             <option value="">-- Select Member --</option>
            </select>
       </div>

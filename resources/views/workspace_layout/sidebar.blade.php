@@ -38,7 +38,7 @@
         </li>
         <li class="menu-item">
           <a href="/customer" class="menu-link">
-            <div class="text-truncate">New Member</div>
+            <div class="text-truncate">Members</div>
           </a>
         </li>
         <li class="menu-item">
@@ -153,6 +153,27 @@
         </li>
         <li class="menu-item">
           <a href="/expense" class="menu-link">
+            <div class="text-truncate">Expenses</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    
+     <!-- Projection -->
+     <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-credit-card-alt"></i>
+        <div class="text-truncate">Projections</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="/expected_incomes" class="menu-link">
+            <div class="text-truncate">Revenue</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/projected_expenses" class="menu-link">
             <div class="text-truncate">Expenses</div>
           </a>
         </li>

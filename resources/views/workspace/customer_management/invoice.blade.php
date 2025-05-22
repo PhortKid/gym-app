@@ -57,7 +57,7 @@
   });
 
   function fetchCustomers() {
-    fetch('http://127.0.0.1:8000/api/invoice')
+    fetch('/api/invoice')
       .then(response => response.json())
       .then(data => {
         const customerList = document.getElementById('customer-list');

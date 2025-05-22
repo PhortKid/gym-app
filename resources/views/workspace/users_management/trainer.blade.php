@@ -168,7 +168,7 @@ function add_user(){
     redirect: "follow"
     };
 
-    fetch(`http://127.0.0.1:8000/api/add_user?name=${name}&email=${email}&password=${password}&phone_number=${phone_number}&specialization=${specialization}&position=${position}`, requestOptions)
+    fetch(`/api/add_user?name=${name}&email=${email}&password=${password}&phone_number=${phone_number}&specialization=${specialization}&position=${position}`, requestOptions)
     .then((response) => response.json())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchUsers() {
-  fetch('http://127.0.0.1:8000/api/trainer')
+  fetch('/api/trainer')
     .then(response => response.json())
     .then(data => {
       const userList = document.getElementById('user-list');
@@ -311,7 +311,7 @@ function updateUser(id) {
  
 
 
-  fetch(`http://127.0.0.1:8000/api/update_user/${id}`, {
+  fetch(`/api/update_user/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -363,7 +363,7 @@ function updateUser(id) {
 //delete 
 
 function deleteUser(id) {
-  fetch(`http://127.0.0.1:8000/api/delete_user/${id}`, {
+  fetch(`/api/delete_user/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

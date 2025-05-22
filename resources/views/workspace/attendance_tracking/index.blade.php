@@ -53,7 +53,7 @@
   });
 
   function fetchAttendance() {
-    fetch('http://127.0.0.1:8000/api/all_attendance')
+    fetch('/api/all_attendance')
       .then(response => response.json())
       .then(data => {
         const attendanceList = document.getElementById('attendance-plan-list');

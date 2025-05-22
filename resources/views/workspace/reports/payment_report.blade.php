@@ -80,7 +80,7 @@
     const filterSelect = document.getElementById('filter-select');
 
     function fetchPayments(filter = 'daily') {
-      fetch(`http://127.0.0.1:8000/api/payment_report?filter=${filter}`)
+      fetch(`/api/payment_report?filter=${filter}`)
         .then(response => response.json())
         .then(data => {
           const customerList = document.getElementById('customer-list');

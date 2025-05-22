@@ -48,7 +48,7 @@
   });
 
   function fetchCustomers() {
-    fetch('http://127.0.0.1:8000/api/paid_customer')
+    fetch('/api/paid_customer')
       .then(response => response.json())
       .then(data => {
         const customerList = document.getElementById('customer-list');

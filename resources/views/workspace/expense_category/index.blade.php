@@ -46,7 +46,7 @@
   });
 
   function fetchIncomeCategory() {
-    fetch('http://127.0.0.1:8000/api/expense_category')
+    fetch('/api/expense_category')
       .then(response => response.json())
       .then(data => {
         const expenseCategoryList = document.getElementById('membership-plan-list');
@@ -146,7 +146,7 @@ function add() {
     redirect: "follow"
   };
 
-  fetch(`http://127.0.0.1:8000/api/add_expense_category?name=${name}`, requestOptions)
+  fetch(`/api/add_expense_category?name=${name}`, requestOptions)
     .then(response => response.json())
     .then(result =>console.log(result))
     .catch((error) => console.error(error));
@@ -158,7 +158,7 @@ function updateIncomeCategory(id) {
 
   
 
-  fetch(`http://127.0.0.1:8000/api/update_expense_category/${id}`, {
+  fetch(`/api/update_expense_category/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ function updateIncomeCategory(id) {
 
 
 function deleteIncomeCategory(id) {
-  fetch(`http://127.0.0.1:8000/api/delete_expense_category/${id}`, {
+  fetch(`/api/delete_expense_category/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

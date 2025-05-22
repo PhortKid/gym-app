@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function fetchCustomers() {
-    fetch('http://127.0.0.1:8000/api/customer')
+    fetch('/api/customer')
       .then(response => response.json())
       .then(data => {
         const customerList = document.getElementById('customer-list');
@@ -192,12 +192,12 @@ document.addEventListener('DOMContentLoaded', function () {
             <a href="#" class="text-info me-3" data-bs-toggle="modal" data-bs-target="#viewCustomer${customer.id}">
               <i class="bx bx-show me-1"></i> View
             </a>
-            |
-            <a href="#" class="text-warning mx-3">
+         {{--   |
+            <a href="#" class="text-warning mx-3" >
               <i class="bx bx-edit-alt me-1"></i> Edit
-            </a>
+            </a> --}}
             |
-            <a href="#" class="text-danger ms-3">
+            <a href="#" class="text-danger ms-3"  onclick="deleteCustomer(${customer.id})">
               <i class="bx bx-trash me-1"></i> Delete
             </a>
           </div>
@@ -371,11 +371,15 @@ document.addEventListener('DOMContentLoaded', function () {
                                   <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
                                     Close
                                   </button>
-                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                 <!-- <button type="button" class="btn btn-primary">Save changes</button>-->
                                 </div>
                               </div>
                             </div>
                           </div>
+
+
+
+                         
           `;
           customerList.appendChild(row);
         });
@@ -599,6 +603,66 @@ function  addCustomer(){
       console.error('Add Member error:', error);
     });
 }
+
+
+
+//delete
+function deleteCustomer(id) {
+  fetch(`/api/delete_customer/${id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Failed to Delete");
+    return response.json();
+  })
+  .then(() => {
+    // Success Alert
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'success',
+      title: 'Expense  deleted',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      customClass: {
+        popup: 'z-top animate__animated animate__fadeInDown'
+      }
+    });
+
+    // Refresh customer list
+    fetchCustomer();
+
+    // Funga modal
+    const modalElement = document.getElementById(`deleteCustomer${id}`);
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) {
+      modal.hide();
+    }
+  })
+  .catch(error => {
+    console.error('Delete error:', error);
+
+    // Error Alert
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'error',
+      title: 'Failed to delete',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      customClass: {
+        popup: 'z-top animate__animated animate__fadeInDown'
+      }
+    });
+  });
+}
+
 </script>
 
 @endsection

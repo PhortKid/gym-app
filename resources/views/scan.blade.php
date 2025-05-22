@@ -65,7 +65,7 @@
     html5QrcodeScanner.clear();
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/scan/${decodedText}`, {
+      const response = await fetch(`/api/scan/${decodedText}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@
     html5QrcodeScanner.clear();
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/scan/${decodedText}`, {
+      const response = await fetch(`/api/scan/${decodedText}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

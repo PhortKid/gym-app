@@ -45,7 +45,7 @@
   });
 
   function fetchIncomeCategory() {
-    fetch('http://127.0.0.1:8000/api/income_category')
+    fetch('/api/income_category')
       .then(response => response.json())
       .then(data => {
         const incomeCategoryList = document.getElementById('membership-plan-list');
@@ -145,7 +145,7 @@ function add() {
     redirect: "follow"
   };
 
-  fetch(`http://127.0.0.1:8000/api/add_income_category?name=${name}`, requestOptions)
+  fetch(`/api/add_income_category?name=${name}`, requestOptions)
     .then(response => response.json())
     .then(result =>console.log(result))
     .catch((error) => console.error(error));
@@ -157,7 +157,7 @@ function updateIncomeCategory(id) {
 
   
 
-  fetch(`http://127.0.0.1:8000/api/update_income_category/${id}`, {
+  fetch(`/api/update_income_category/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ function updateIncomeCategory(id) {
 
 
 function deleteIncomeCategory(id) {
-  fetch(`http://127.0.0.1:8000/api/delete_income_category/${id}`, {
+  fetch(`/api/delete_income_category/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

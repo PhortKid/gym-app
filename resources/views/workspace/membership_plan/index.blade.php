@@ -47,7 +47,7 @@
   });
 
   function fetchCustomers() {
-    fetch('http://127.0.0.1:8000/api/membership_plan')
+    fetch('/api/membership_plan')
       .then(response => response.json())
       .then(data => {
         const membershipPlanList = document.getElementById('membership-plan-list');
@@ -161,7 +161,7 @@ function add() {
     redirect: "follow"
   };
 
-  fetch(`http://127.0.0.1:8000/api/add_membership_plan?name=${name}&description=${description}&cost=${cost}`, requestOptions)
+  fetch(`/api/add_membership_plan?name=${name}&description=${description}&cost=${cost}`, requestOptions)
     .then(response => response.json())
     .then(result =>console.log(result))
     .catch((error) => console.error(error));
@@ -175,7 +175,7 @@ function updateMembershipPlan(id) {
 
   
 
-  fetch(`http://127.0.0.1:8000/api/update_membership_plan/${id}`, {
+  fetch(`/api/update_membership_plan/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ function updateMembershipPlan(id) {
 
 
 function deleteMembershipPlan(id) {
-  fetch(`http://127.0.0.1:8000/api/delete_membership_plan/${id}`, {
+  fetch(`/api/delete_membership_plan/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -77,6 +77,7 @@ Route::post('/register', function (Request $request) {
 
 Route::get('customer',[CustomerManagementController::class,'customers']);
 Route::post('add_customer',[CustomerManagementController::class,'add']);
+Route::post('delete_customer/{id}', [CustomerManagementController::class, 'delete']);
 
 Route::get('invoice',[CustomerManagementController::class,'invoice']);
 Route::get('paid_customer',[CustomerManagementController::class,'paid_customer']);

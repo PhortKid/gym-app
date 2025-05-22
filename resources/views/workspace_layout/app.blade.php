@@ -274,11 +274,19 @@
 
 
        <!-- endbuild -->
-  <script>
-    $(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-  </script>
+<!-- CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+{{--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
+
+<!-- Chosen JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(".chosen-select").chosen();
+  });
+</script>
 
        
     <!-- Vendors JS -->

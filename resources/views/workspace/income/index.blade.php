@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', fetchIncomeCategories);
   });
 
   function fetchIncome() {
-    fetch('http://127.0.0.1:8000/api/income')
+    fetch('/api/income')
       .then(response => response.json())
       .then(data => {
         const incomeList = document.getElementById('income-list');
@@ -236,7 +236,7 @@ function updateIncome(id) {
   const date = document.getElementById(`date${id}`).value;
   const description = document.getElementById(`description${id}`).value;
 
-  fetch(`http://127.0.0.1:8000/api/update_income/${id}`, {
+  fetch(`/api/update_income/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -328,7 +328,7 @@ function updateIncome(id) {
 
 
 function deleteIncome(id) {
-  fetch(`http://127.0.0.1:8000/api/delete_income/${id}`, {
+  fetch(`/api/delete_income/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

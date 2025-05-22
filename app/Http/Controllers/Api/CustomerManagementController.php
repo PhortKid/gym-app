@@ -140,4 +140,22 @@ TUNAJALI AFYA YAKO.";
         
         
     }
+
+
+            public function delete(Request $request, $id)
+        {
+            // Find Customer
+            $customer = Customer::find($id);
+
+            if (!$customer) {
+                return response()->json(['message' => 'Customer not found'], 404);
+            }
+
+            // Update fields
+        
+            $customer->delete();
+
+            return response()->json(['message' => 'Customer successfully']);
+        }
+
 }

@@ -88,4 +88,9 @@ class User extends Authenticatable
     return $this->hasMany(Customer::class, 'assigned_trainer_id');
 }
 
+public function salary()
+{
+    return $this->hasOne(Salary::class, 'user_id');
+}
+
 }

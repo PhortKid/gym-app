@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Attendance;
 use App\Models\Customer;
+use App\Http\Controllers\ExpectedIncomeController;
+use App\Http\Controllers\ProjectedExpenseController;
+use App\Http\Controllers\SalaryManagement;
 
 Route::get('/', function () {
 
@@ -33,7 +36,10 @@ Route::get('/demo',function(){
     $update->start_date="2025-05-9";
     $update->expiry_date="2025-05-10";
     $update->save();
+    
 });
+
+
 
 Route::view('users','workspace.users_management.index');
 Route::view('trainer','workspace.users_management.trainer');
@@ -50,6 +56,12 @@ Route::view('income_category','workspace.income_category.index');
 Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
 Route::view('signin', 'signin')->name('signin');
+
+Route::resource('/expected_incomes', ExpectedIncomeController::class);
+Route::resource('/projected_expenses', ProjectedExpenseController::class);
+
+Route::resource('/salary_management', SalaryManagement::class);
+Route::get('/salary_report', [SalaryManagement::class,'salaryReport'])->name('salary_management.salaryReport');
 
 
 use Illuminate\Support\Facades\Mail;

@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', fetchExpenseCategories);
   });
 
   function fetchExpense() {
-    fetch('http://127.0.0.1:8000/api/expense')
+    fetch('/api/expense')
       .then(response => response.json())
       .then(data => {
         const expenseCategoryList = document.getElementById('membership-plan-list');
@@ -354,7 +354,7 @@ function updateIncomeCategory(id) {
 
   
 
-  fetch(`http://127.0.0.1:8000/api/update_expense_category/${id}`, {
+  fetch(`/api/update_expense_category/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -382,7 +382,7 @@ function updateIncomeCategory(id) {
 
 
 function deleteExpense(id) {
-  fetch(`http://127.0.0.1:8000/api/delete_expense/${id}`, {
+  fetch(`/api/delete_expense/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
