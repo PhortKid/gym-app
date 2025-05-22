@@ -17,59 +17,60 @@
     </div>--}}
 
     <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register -->
-          <div class="card px-sm-6 px-0">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <img src="{{ asset('favicon.png') }}" width="200" height="150" alt="Logo">
-                  </span>
-                  <span class="app-brand-text demo text-heading fw-bold">Amazing Fitness Gym</span>
-                </a>
-              </div>
-              <!-- /Logo -->
-              <h4 class="mb-1">Welcome to Amazing Fitness Gym</h4>
-              <p class="mb-6">Please sign-in to your account and start the adventure</p>
-
-              <form id="formAuthentication" class="mb-6" action="index.html">
-                <div class="mb-6">
-                  <label for="email" class="form-label">Email or Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
-                    autofocus />
-                </div>
-                <div class="mb-6 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password" />
-                    <span class="input-group-text cursor-pointer"><i class="icon-base bx bx-hide"></i></span>
-                  </div>
-                </div>
-                <div class="mb-6">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
-                </div>
-              </form>
-              <p id="message" style="color: red; margin-top: 10px;"></p>
-            </div>
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner d-flex justify-content-center">
+      <!-- Register -->
+      <div class="card px-sm-6 px-0" style="max-width: 400px; width: 100%;">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center">
+            <a href="index.html" class="app-brand-link gap-2">
+              <span class="app-brand-logo demo">
+                <img src="{{ asset('favicon.png') }}" width="200" height="150" alt="Logo">
+              </span>
+            </a>
           </div>
-          <!-- /Register -->
+          <!-- /Logo -->
+          <h4 class="mb-1 text-center">Welcome to Amazing Fitness Gym</h4>
+          <p class="mb-6 text-center">Please sign-in to your account and start the adventure</p>
+
+          <form id="loginForm" class="mb-6">
+            <div class="mb-6">
+              <label for="email" class="form-label">Email or Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter your email or username"
+                autofocus />
+            </div>
+            <div class="mb-6 form-password-toggle">
+              <label class="form-label" for="password">Password</label>
+              <div class="input-group input-group-merge">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="••••••••••••"
+                  aria-describedby="password" />
+                <span class="input-group-text cursor-pointer">
+                  <i class="icon-base bx bx-hide"></i>
+                </span>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
+            </div>
+          </form>
+          <p id="message" style="color: red; margin-top: 10px;"></p>
         </div>
       </div>
+      <!-- /Register -->
     </div>
+  </div>
+</div>
 
 
 {{--
