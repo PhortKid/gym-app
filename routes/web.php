@@ -44,6 +44,7 @@ Route::view('attendance','workspace.attendance.index');
 Route::view('attendance_tracking','workspace.attendance_tracking.index');
 Route::view('income','workspace.income.index');
 Route::view('expense','workspace.expense.index');
+Route::view('financial_report','workspace.reports.financial_report');
 Route::view('income_category','workspace.income_category.index');
 Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');

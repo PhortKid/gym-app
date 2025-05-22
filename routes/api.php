@@ -158,6 +158,10 @@ Route::post('scan/{id}',function(Request $request,$id){
 
 });
 
+use App\Http\Controllers\Api\ReportController;
+
+Route::get('/reports/income-summary', [ReportController::class, 'incomeSummary']);
+Route::get('/reports/expense-summary', [ReportController::class, 'expenseSummary']);
 
 
 
