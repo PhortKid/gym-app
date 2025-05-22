@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class AttendanceController extends Controller
 {
@@ -19,10 +20,6 @@ class AttendanceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'member_id' => 'required',
-            'time_in' => 'required',
-            'time_out' => 'required',
-            'workout_area' => 'nullable',
-            'trainer_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -31,10 +28,7 @@ class AttendanceController extends Controller
 
         Attendance::create([
             'member_id' => $request->member_id,
-            'time_in' => $request->time_in,
-            'time_out' => $request->time_out,
-            'workout_area' => $request->workout_area,
-            'trainer_id' => $request->trainer_id,
+            'time_in' => Carbon::now(),
         ]);
 
         return response()->json(['status' => 'success', 'message' => 'Attendance Added']);

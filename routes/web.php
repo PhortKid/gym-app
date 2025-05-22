@@ -28,7 +28,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/demo',function(){
-    return view('test');
+    $update=Customer::find('1');
+    $update->start_date="2025-05-9";
+    $update->expiry_date="2025-05-10";
+    $update->save();
 });
 
 Route::view('users','workspace.users_management.index');
@@ -38,6 +41,11 @@ Route::view('invoice','workspace.customer_management.invoice');
 Route::view('customer','workspace.customer_management.index');
 Route::view('membership_plan','workspace.membership_plan.index');
 Route::view('attendance','workspace.attendance.index');
+Route::view('attendance_tracking','workspace.attendance_tracking.index');
+Route::view('income','workspace.income.index');
+Route::view('expense','workspace.expense.index');
+Route::view('income_category','workspace.income_category.index');
+Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
 
 

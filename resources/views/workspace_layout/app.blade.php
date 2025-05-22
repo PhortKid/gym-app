@@ -78,7 +78,41 @@
 .z-top {
   z-index: 2000 !important;
 }
+
+.report-header {
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .company-logo {
+            width: 200px;
+        }
+
+@media print {
+    @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css');
+      @page {
+            margin: 0;
+        }
+        body {
+            margin: 1cm;
+            zoom: 75%; 
+        }
+        header, footer {
+            display: none;
+        }
+        
+        .table-dark {
+    background-color: #343a40 !important;
+    color: white !important;
+  }
+
+  .table-info {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+  }
+    }
    </style>
+
 
   </head>
 
@@ -211,9 +245,10 @@
     <!-- / Layout wrapper -->
 
   
-
+ 
     <!-- Core JS -->
 
+   
     <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
 
     <script src="{{asset('assets/vendor/libs/popper/popper.js')}}"></script>
@@ -237,7 +272,11 @@
 
 
        <!-- endbuild -->
-
+  <script>
+    $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+  </script>
 
        
     <!-- Vendors JS -->

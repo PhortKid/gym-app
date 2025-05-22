@@ -13,6 +13,12 @@ use App\Http\Controllers\Api\MembershipPlanController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\AttendanceController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\IncomeCategoryController;
+use App\Http\Controllers\Api\ExpenseCategoryController;
+use App\Http\Controllers\Api\IncomeController;
+use App\Http\Controllers\Api\ExpenseController;
+use App\Http\Controllers\Api\AttendanceTrackingController;
+
 use Carbon\Carbon;
 
 Route::get('/user', function (Request $request) {
@@ -74,6 +80,8 @@ Route::get('invoice',[CustomerManagementController::class,'invoice']);
 Route::get('paid_customer',[CustomerManagementController::class,'paid_customer']);
 
 Route::get('payment_report',[PaymentController::class,'report']);
+Route::get('all_attendance',[AttendanceTrackingController::class,'allCustomersAttendance']);
+
 
 
 
@@ -96,23 +104,32 @@ Route::post('add_attendance',[AttendanceController::class,'add']);
 Route::post('update_attendance/{id}', [AttendanceController::class, 'update']);
 Route::post('delete_attendance/{id}', [AttendanceController::class, 'delete']);
 
+//IncomeCategoryController
+Route::get('income_category',[IncomeCategoryController::class,'all']);
+Route::post('add_income_category',[IncomeCategoryController::class,'add']);
+Route::post('update_income_category/{id}', [IncomeCategoryController::class, 'update']);
+Route::post('delete_income_category/{id}', [IncomeCategoryController::class, 'delete']);
+
+//IncomeController
+Route::get('income',[IncomeController::class,'all']);
+Route::post('add_income',[IncomeController::class,'add']);
+Route::post('update_income/{id}', [IncomeController::class, 'update']);
+Route::post('delete_income/{id}', [IncomeController::class, 'delete']);
+
+//ExpenseCategoryController
+Route::get('expense_category',[ExpenseCategoryController::class,'all']);
+Route::post('add_expense_category',[ExpenseCategoryController::class,'add']);
+Route::post('update_expense_category/{id}', [ExpenseCategoryController::class, 'update']);
+Route::post('delete_expense_category/{id}', [ExpenseCategoryController::class, 'delete']);
+
+//Expense
+Route::get('expense',[ExpenseController::class,'all']);
+Route::post('add_expense',[ExpenseController::class,'add']);
+Route::post('update_expense/{id}', [ExpenseController::class, 'update']);
+Route::post('delete_expense/{id}', [ExpenseController::class, 'delete']);
+
 
 Route::post('scan/{id}',function(Request $request,$id){
-/*
-    $user = Customer::find($id);
-    
-    if (!$user) {
-        return response()->json(['status'=>'null','message' => 'User not found'], 404);
-    }
-   
-    $attendance=new Attendance;
-    $attendance->member_id =$id;
-    $attendance->time_in =  Carbon::now();
-    $attendance->save();
-    return response()->json(['status'=>'success']);
-
-    */
-
     $user = Customer::find($id);
     
     if (!$user) {

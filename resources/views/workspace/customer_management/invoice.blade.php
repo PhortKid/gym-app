@@ -38,7 +38,17 @@
 </div>
 
 
+<!--<button class="btn btn-success" onclick="printContent()">Print Report</button>-->
 
+<script>
+    function printContent() {
+        var printArea = document.getElementById('printable-area').innerHTML;
+        var originalContent = document.body.innerHTML;
+        document.body.innerHTML = printArea;
+        window.print();
+        document.body.innerHTML = originalContent;
+    }
+</script>
 <script>
 
   // Function to fetch and display customer data
@@ -75,6 +85,7 @@
             </td>
                   <!-- View Customer Modal -->
                           <div class="modal fade" id="viewCustomer${customer.id}" tabindex="-1" aria-hidden="true">
+                          
                             <div class="modal-dialog modal-xl" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -85,7 +96,24 @@
                                     data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body" >
+                                 <div class="for printing" id="printable-area">
+                                   <!-- Header -->
+                                    <div class="report-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3">
+                                            <div>
+                                                <h3 class="mb-1">AMAZING FITNESS GYM</h3>
+                                                <p class="mb-0">Fitness & Wellness Center</p>
+                                                <p class="mb-0">Email: info@gymfitsolutions.com | Phone: +255 712 345 678</p>
+                                                <p class="mb-0">Address:Mshindo, Iringa, Tanzania</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-end">
+                                            <h5 class="mb-1">Attendance Report</h5>
+                                            <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>
+                                        </div>
+                                    </div>
                                   <div class="row">
                                     <div class="col mb-4">
                                       <label for="nameExLarge" class="form-label">FullName</label>
@@ -251,15 +279,24 @@
                                          value="${customer.payed_amount}" />
                                     </div>
                                     </div>
+                                    <!-- Footer -->
+                                    <div class="row mt-5">
+                                        <div class="col-md-6">
+                                            <p><strong>Prepared By:</strong> Director Of Operation</p>
+                                        </div>
+                                        <div class="col-md-6 text-end">
+                                            <p><strong>Signature:</strong> __________________________</p>
+                                        </div>
+                                    </div>
                                   
-                                 
+                                 </div><!-- printable area -->
 
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
                                     Close
                                   </button>
-                               <!--   <button type="button" class="btn btn-primary">Save changes</button>-->
+                                 <button type="button" class="btn btn-primary" onclick="printContent()">Print</button>
                                 </div>
                               </div>
                             </div>

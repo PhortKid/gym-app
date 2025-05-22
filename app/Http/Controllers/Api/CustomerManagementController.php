@@ -114,7 +114,7 @@ class CustomerManagementController extends Controller
              
         }
         */
-
+/*
         try{
             $customer->phone_number = preg_replace('/\D/', '', $customer->phone_number);
             if (preg_match('/^0[67]\d{8}$/', $customer->phone_number)) {
@@ -134,7 +134,7 @@ TUNAJALI AFYA YAKO.";
         }catch(Exception){
             //return response()->json(['errors'=>'Message Not Sent']);
         }
-        
+        */
 
         return response()->json(['status'=>'sucess','message'=>'Customer Added']);
         

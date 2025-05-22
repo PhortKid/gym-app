@@ -485,7 +485,7 @@ function  addCustomer(){
   const amount = document.getElementById('calculated_amount').value;
   const payment_method = document.getElementById('payment_method').value;
   
-  alert(payment_method);
+ 
   
   fetch("http://127.0.0.1:8000/api/add_customer", {
     method: "POST",

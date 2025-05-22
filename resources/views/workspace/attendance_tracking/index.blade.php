@@ -3,17 +3,15 @@
 <div class="container mt-5">
   <div class="card">
   
-    @include('workspace.attendance.add')
+    
     <div class="card-header d-flex justify-content-between align-items-center">
-  <h5 class="mb-0">Attendance</h5>
+  <h5 class="mb-0">Attendance Tracking</h5>
   <div class="d-flex align-items-center gap-2">
     <!-- Export Button Container -->
     <div id="export-buttons" class="btn-group"></div>
 
-    <!-- Add Button -->
-    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#add-new-record" aria-controls="add-new-record">
-      <i class="icon-base bx bx-plus me-1"></i> Add
-    </button>
+    
+   
   </div>
 </div>
 
@@ -22,8 +20,16 @@
         <thead>
           <tr>
             <th>Member name</th>
-            <th>Time-in</th>
-            {{--<th>action</th>--}}
+            <th>status</th>
+            <th>start_date</th>
+            <th>original_expiry_date</th>
+            <th>extended_expiry_date</th>
+            <th>assigned_days</th>
+            <th>attended_days</th>
+            <th>missed_days</th>
+            <th>remaining_days</th>
+            
+           
           </tr>
         </thead>
         <tbody id="attendance-plan-list" class="table-border-bottom-0">
@@ -41,41 +47,13 @@
 
 <script>
 
-  //fetch membership plan
-function fetchMember() {
-  fetch("http://127.0.0.1:8000/api/customer") 
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      const memberSelect = document.getElementById('member_id');
-      memberSelect.innerHTML = '<option value="">-- Select Member --</option>'; 
-
-      data.forEach(member => {
-        const option = document.createElement('option');
-        option.value = member.id;
-        option.textContent = member.full_name; 
-        memberSelect.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching members:', error);
-    });
-}
-
-// Call this function when the page loads or when the modal opens
-document.addEventListener('DOMContentLoaded', fetchMember);
-
   // Function to fetch and display customer data
   document.addEventListener('DOMContentLoaded', function() {
     fetchAttendance();
   });
 
   function fetchAttendance() {
-    fetch('http://127.0.0.1:8000/api/attendance')
+    fetch('http://127.0.0.1:8000/api/all_attendance')
       .then(response => response.json())
       .then(data => {
         const attendanceList = document.getElementById('attendance-plan-list');
@@ -84,8 +62,18 @@ document.addEventListener('DOMContentLoaded', fetchMember);
         data.forEach(attendance => {
           const row = document.createElement('tr');
           row.innerHTML = `
-            <td><span>${attendance.customer ? attendance.customer.full_name : 'N/A'}</span></td>
-            <td>${attendance.time_in}</td>
+            <td><span>${attendance.customer_name}</span></td>
+            <td class="${attendance.status === 'Limit Reached' ? 'text-danger' : ''}">${attendance.status}</td>
+            <td>${attendance.start_date}</td>
+            <td>${attendance.original_expiry_date}</td>
+            <td>${attendance.extended_expiry_date}</td>
+            <td>${attendance.assigned_days}</td>
+            <td>${attendance.attended_days}</td>
+            <td>${attendance.missed_days}</td>
+            <td>${attendance.remaining_days}</td>
+            
+
+            
           
         <!--    <td>
             
