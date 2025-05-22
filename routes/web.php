@@ -48,6 +48,7 @@ Route::view('financial_report','workspace.reports.financial_report');
 Route::view('income_category','workspace.income_category.index');
 Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
+Route::view('signin','signin');
 
 
 use Illuminate\Support\Facades\Mail;
