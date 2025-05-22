@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Attendance;
 use App\Models\Customer;
+
 Route::get('/', function () {
 
     $dailyCount = Attendance::whereDate('time_in', today())->count();
