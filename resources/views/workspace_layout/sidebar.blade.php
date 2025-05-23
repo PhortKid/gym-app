@@ -89,36 +89,7 @@
       </ul>
     </li>
 
-    <!-- Financial -->
-    <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-wallet"></i>
-        <div class="text-truncate">Financial</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="/payment_report" class="menu-link">
-            <div class="text-truncate">Payment Report</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="/financial_report" class="menu-link">
-            <div class="text-truncate">Financial Report</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="/invoice" class="menu-link">
-            <div class="text-truncate">Invoice</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="/paid_customer" class="menu-link">
-            <div class="text-truncate">Paid Members</div>
-          </a>
-        </li>
-      </ul>
-    </li>
-
+    
     <!-- Income -->
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -199,6 +170,45 @@
         </li>
       </ul>
     </li>
+
+
+
+    <!-- Financial -->
+    <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-wallet"></i>
+        <div class="text-truncate">Financial Report</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="/payment_report" class="menu-link">
+            <div class="text-truncate">Payment Report</div>
+          </a>
+        </li>
+       <!-- <li class="menu-item">
+          <a href="/financial_report" class="menu-link">
+            <div class="text-truncate">Financial Report</div>
+          </a>
+        </li>-->
+
+        <li class="menu-item">
+          <a href="/income_expense" class="menu-link">
+            <div class="text-truncate">Income & Expense</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/invoice" class="menu-link">
+            <div class="text-truncate">Invoice</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/paid_customer" class="menu-link">
+            <div class="text-truncate">Paid Members</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
 
   </ul>
 </aside>

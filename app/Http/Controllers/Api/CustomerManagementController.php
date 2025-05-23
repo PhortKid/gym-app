@@ -92,7 +92,7 @@ class CustomerManagementController extends Controller
             'payment_status'=>$request->payment_status,
         ]);
 
-        if($request->payed_amount != null && $request->amount != null){
+       
             $payment = Payment::create(
                 [
                 'member_id'=>$customer->id,
@@ -100,13 +100,13 @@ class CustomerManagementController extends Controller
                 'amount'=>$customer->amount,
                 'payment_method'=>$request->payment_method,
             ]);
-        }
+        
        
 
-        
+        /*
         $qrCodeImage = QrCode::format('svg')->size(300)->generate($customer->id);
         $qrCodePath = public_path("qrcodes/customer_{$customer->id}.svg");
-        file_put_contents($qrCodePath, $qrCodeImage);
+        file_put_contents($qrCodePath, $qrCodeImage);*/
         /*
         try{
             Mail::to($customer->email)->send(new SendQrCodeToCustomer($customer, $qrCodePath));
