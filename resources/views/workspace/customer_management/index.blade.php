@@ -27,7 +27,7 @@
             <th>Start Date</th>
             <th>Expire Date</th>
             <th>Payment Plan</th>
-            <th>Membership Type</th>
+         <!--   <th>Membership Type</th>-->
             <th>Payment Status</th>
             <th>Action</th>
           </tr>
@@ -142,26 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 //end
-/*
-document.addEventListener('DOMContentLoaded', function () {
-    const paymentStatus = document.getElementById('payment_status');
-    const paidAmountWrapper = document.getElementById('paid_amount_wrapper');
-    const paymentMethodWrapper=document.getElementById('payment_method_wrapper');
 
-    paymentStatus.addEventListener('change', function () {
-      const selectedValue = this.value;
-
-      if (selectedValue === 'Full Paid' || selectedValue === 'Partial') {
-        paidAmountWrapper.style.display = 'block';
-        paymentMethodWrapper.style.display = 'block';
-      } else {
-        paidAmountWrapper.style.display = 'none';
-        paymentMethodWrapper.style.display = 'none';
-        document.getElementById('paid_amount').value = ''; // Optional: clear the input
-      }
-    });
-  });*/
-  //end of paid and not paid function
 
 
   // Function to fetch and display customer data
@@ -183,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <td>${customer.start_date}</td>
             <td>${customer.expiry_date}</td>
             <td>${customer.payment_plan}</td>
-            <td>${customer.membership_type ? customer.membership_type.name : 'N/A'}</td>
+          <!--  <td>${customer.membership_type ? customer.membership_type.name : 'N/A'}</td>-->
             <td>${customer.payment_status}</td>
             <td>
 
@@ -192,10 +173,10 @@ document.addEventListener('DOMContentLoaded', function () {
             <a href="#" class="text-info me-3" data-bs-toggle="modal" data-bs-target="#viewCustomer${customer.id}">
               <i class="bx bx-show me-1"></i> View
             </a>
-         {{--   |
-            <a href="#" class="text-warning mx-3" >
-              <i class="bx bx-edit-alt me-1"></i> Edit
-            </a> --}}
+            |
+            <a href="#" class="text-warning mx-3" data-bs-toggle="modal" data-bs-target="#Pay${customer.id}">
+              <i class="bx bx-add me-1"></i> Pay
+            </a> 
             |
             <a href="#" class="text-danger ms-3"  onclick="deleteCustomer(${customer.id})">
               <i class="bx bx-trash me-1"></i> Delete
@@ -204,179 +185,128 @@ document.addEventListener('DOMContentLoaded', function () {
 
             </td>
                   <!-- View Customer Modal -->
-                          <div class="modal fade" id="viewCustomer${customer.id}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-xl" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel4">View Member</h5>
-                                  <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                    <div class="modal fade" id="viewCustomer${customer.id}" tabindex="-1" aria-hidden="true">
+                      <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">View Member</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+
+                          <!-- Header -->
+                            <div class="report-header d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3">
+                                <div>
+                                  <h3 class="mb-1">AMAZING FITNESS GYM</h3>
+                                  <p class="mb-0">Fitness & Wellness Center</p>
+                                  <p class="mb-0">Email: info@gymfitsolutions.com | Phone:</p>
+                                  <p class="mb-0">Address:Mshindo, Iringa, Tanzania</p>
                                 </div>
-                                <div class="modal-body">
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">FullName</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.full_name}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Email</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.email}"
-                                        />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Gender</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.gender}" />
-                                    </div>
-                                  </div>
+                              </div>
+                              <div class="text-end">
+                                <h5 class="mb-1">View Member</h5>
+                                <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>
+                              </div>
+                            </div>
 
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Phone Number</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.phone_number}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Nationality</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.nationality}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">start date</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.start_date}" />
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">FullName</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.expiry_date}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Next Of Kin Name</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.next_of_kin_name}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Next of Kin Relation</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.next_of_kin_relation}"/>
-                                    </div>
-                                  </div>
-
-
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Next of Kin Phone</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.next_of_kin_phone}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Payment Plan</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.payment_plan}" />
-                                    </div>
-                                 
-
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">preferred_workout_time</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.preferred_workout_time}"  />
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">membership_type_id</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                          value="${customer.membership_type ? customer.membership_type.name : 'N/A'}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">assigned_trainer_id</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                         value="${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">customer.profile_photo</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                         value="${customer.profile_photo}" />
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                  <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">health_notes</label>
-                                      <textarea
-                                        type="text"
-                                        class="form-control"
-                                        >${customer.health_notes} </textarea>
-                                    </div>
-                                    </div>
-                                  
-                                 
-
+                            <div class="container-fluid">
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Full Name:</strong>
+                                  <div>${customer.full_name}</div>
                                 </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
-                                    Close
-                                  </button>
-                                 <!-- <button type="button" class="btn btn-primary">Save changes</button>-->
+                                <div class="col-md-4">
+                                  <strong>Email:</strong>
+                                  <div>${customer.email}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Gender:</strong>
+                                  <div>${customer.gender}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Phone Number:</strong>
+                                  <div>${customer.phone_number}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Nationality:</strong>
+                                  <div>${customer.nationality}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Start Date:</strong>
+                                  <div>${customer.start_date}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Expiry Date:</strong>
+                                  <div>${customer.expiry_date}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Next of Kin Name:</strong>
+                                  <div>${customer.next_of_kin_name}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Next of Kin Relation:</strong>
+                                  <div>${customer.next_of_kin_relation}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Next of Kin Phone:</strong>
+                                  <div>${customer.next_of_kin_phone}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Payment Plan:</strong>
+                                  <div>${customer.payment_plan}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Preferred Workout Time:</strong>
+                                  <div>${customer.preferred_workout_time}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Membership Type:</strong>
+                                  <div>${customer.membership_type ? customer.membership_type.name : 'N/A'}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Responsible Trainer:</strong>
+                                  <div>${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Amount:</strong>
+                                  <div>${customer.amount}TZS</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-4">
+                                  <strong>Health Notes:</strong>
+                                  <div class="border p-2 rounded bg-light">
+                                    ${customer.health_notes || 'N/A'}
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
 
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
 
                          
@@ -453,7 +383,7 @@ function fetchMembershipPlan() {
         const option = document.createElement('option');
         option.value = plan.id;
         option.setAttribute('data-amount', plan.cost); 
-        option.textContent = plan.name; 
+        option.textContent = plan.name+' '+plan.cost+' TZS'; 
         planSelect.appendChild(option);
       });
     })

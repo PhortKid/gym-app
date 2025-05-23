@@ -36,7 +36,12 @@
       <!-- Nationality -->
       <div class="mb-3">
         <label class="form-label">Nationality</label>
-        <input type="text" class="form-control" id="nationality" name="nationality">
+        <select name="nationality"  class="form-control" id="nationality" >
+          <option value="Tanzania">Tanzania</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Uganda">Uganda</option>
+        </select>
+       <!-- <input type="text" class="form-control" id="nationality" name="nationality">-->
       </div>
 
 

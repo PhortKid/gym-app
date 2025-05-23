@@ -18,10 +18,31 @@
     
     <!-- Dashboard -->
     <li class="menu-item">
-      <a href="#" class="menu-link">
+      <a href="/" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div class="text-truncate">Dashboard</div>
       </a>
+    </li>
+
+
+    <!-- Users -->
+    <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-group"></i>
+        <div class="text-truncate">Users</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="/users" class="menu-link">
+            <div class="text-truncate">Management</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/trainer" class="menu-link">
+            <div class="text-truncate">Trainer</div>
+          </a>
+        </li>
+      </ul>
     </li>
 
     <!-- Member Section -->
@@ -69,25 +90,7 @@
       </ul>
     </li>
 
-    <!-- Users -->
-    <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-group"></i>
-        <div class="text-truncate">Users</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="/users" class="menu-link">
-            <div class="text-truncate">Management</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="/trainer" class="menu-link">
-            <div class="text-truncate">Trainer</div>
-          </a>
-        </li>
-      </ul>
-    </li>
+    
 
     
     <!-- Income -->
