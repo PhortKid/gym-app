@@ -120,6 +120,11 @@
             <div class="text-truncate">Incomes</div>
           </a>
         </li>
+        <li class="menu-item">
+          <a href="/report/income" class="menu-link">
+            <div class="text-truncate">Report</div>
+          </a>
+        </li>
       </ul>
     </li>
 
@@ -138,6 +143,12 @@
         <li class="menu-item">
           <a href="/expense" class="menu-link">
             <div class="text-truncate">Expenses</div>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="/report/expense" class="menu-link">
+            <div class="text-truncate">Report</div>
           </a>
         </li>
       </ul>
