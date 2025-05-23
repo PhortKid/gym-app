@@ -10,6 +10,7 @@ use App\Http\Controllers\SalaryManagement;
 use App\Http\Controllers\IncomeReportController;
 use App\Http\Controllers\ExpenseReportController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\PayController;
 
 
 
@@ -73,6 +74,8 @@ Route::get('/report/expense', [ExpenseReportController::class, 'show'])->name('e
 
 //report
 Route::get('/income_expense', [ReportController::class, 'income_expense'])->name('income_expense.report');
+
+Route::get('pay', [PayController::class, 'pay'])->name('pay');
 
 
 

@@ -78,7 +78,7 @@
                             <div class="modal-dialog modal-xl" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel4">View Member</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel4">Paid Member</h5>
                                   <button
                                     type="button"
                                     class="btn-close"
@@ -86,175 +86,115 @@
                                     aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">FullName</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.full_name}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Email</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.email}"
-                                        />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Gender</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.gender}" />
-                                    </div>
+                                   <div class="for printing" id="printable-area">
+                                  <!-- Header -->
+                            <div class="report-header d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3">
+                                <div>
+                                  <h3 class="mb-1">AMAZING FITNESS GYM</h3>
+                                  <p class="mb-0">Fitness & Wellness Center</p>
+                                  <p class="mb-0">Email: info@gymfitsolutions.com | Phone:</p>
+                                  <p class="mb-0">Address:Mshindo, Iringa, Tanzania</p>
+                                </div>
+                              </div>
+                              <div class="text-end">
+                                <h5 class="mb-1">Paid Member</h5>
+                                <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>
+                              </div>
+                            </div>
+
+                            <div class="container-fluid">
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Full Name:</strong>
+                                  <div>${customer.full_name}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Email:</strong>
+                                  <div>${customer.email}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Gender:</strong>
+                                  <div>${customer.gender}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Phone Number:</strong>
+                                  <div>${customer.phone_number}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Nationality:</strong>
+                                  <div>${customer.nationality}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Start Date:</strong>
+                                  <div>${customer.start_date}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Expiry Date:</strong>
+                                  <div>${customer.expiry_date}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Next of Kin Name:</strong>
+                                  <div>${customer.next_of_kin_name}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Next of Kin Relation:</strong>
+                                  <div>${customer.next_of_kin_relation}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Next of Kin Phone:</strong>
+                                  <div>${customer.next_of_kin_phone}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Payment Plan:</strong>
+                                  <div>${customer.payment_plan}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Preferred Workout Time:</strong>
+                                  <div>${customer.preferred_workout_time}</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-md-4">
+                                  <strong>Membership Type:</strong>
+                                  <div>${customer.membership_type ? customer.membership_type.name : 'N/A'}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Responsible Trainer:</strong>
+                                  <div>${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Amount:</strong>
+                                  <div>${customer.amount}TZS</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <div class="col-4">
+                                  <strong>Health Notes:</strong>
+                                  <div class="border p-2 rounded bg-light">
+                                    ${customer.health_notes || 'N/A'}
                                   </div>
+                                </div>
+                              </div>
+                            </div>
 
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Phone Number</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.phone_number}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Nationality</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.nationality}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">start date</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.start_date}" />
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">FullName</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.expiry_date}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Next Of Kin Name</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.next_of_kin_name}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Next of Kin Relation</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.next_of_kin_relation}"/>
-                                    </div>
-                                  </div>
-
-
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Next of Kin Phone</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.next_of_kin_phone}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Payment Plan</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.payment_plan}" />
-                                    </div>
-                                 
-
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">preferred_workout_time</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                        value="${customer.preferred_workout_time}"  />
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">membership_type_id</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                          value="${customer.membership_type ? customer.membership_type.name : 'N/A'}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">assigned_trainer_id</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                         value="${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}" />
-                                    </div>
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">customer.profile_photo</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                         value="${customer.profile_photo}" />
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                  <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">health_notes</label>
-                                      <textarea
-                                        type="text"
-                                        class="form-control"
-                                        >${customer.health_notes} </textarea>
-                                    </div>
-
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Amount</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                         value="${customer.amount}" />
-                                    </div>
-
-                                    <div class="col mb-4">
-                                      <label for="nameExLarge" class="form-label">Paid Amount</label>
-                                      <input
-                                        type="text"
-                                        id="nameExLarge"
-                                        class="form-control"
-                                         value="${customer.payed_amount}" />
-                                    </div>
-                                    </div>
                                   
-                                 
+                                 </div><!-- printable area -->
 
                                 </div>
+
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
                                     Close

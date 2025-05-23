@@ -62,6 +62,16 @@
             <div class="text-truncate">Members</div>
           </a>
         </li>
+        <li class="menu-item">
+          <a href="/invoice" class="menu-link">
+            <div class="text-truncate">Invoice</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/paid_customer" class="menu-link">
+            <div class="text-truncate">Paid Members</div>
+          </a>
+        </li>
       <!--  <li class="menu-item">
           <a href="/scann" class="menu-link" target="_blank">
             <div class="text-truncate">Scan</div>
@@ -199,16 +209,7 @@
             <div class="text-truncate">Income & Expense</div>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="/invoice" class="menu-link">
-            <div class="text-truncate">Invoice</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="/paid_customer" class="menu-link">
-            <div class="text-truncate">Paid Members</div>
-          </a>
-        </li>
+       
       </ul>
     </li>
 
