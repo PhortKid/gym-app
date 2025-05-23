@@ -20,6 +20,6 @@ class ProjectedExpense extends Model
 
     public function expensetype()
     {
-        return $this->belongsTo(ExpenseType::class, 'expense_id'); 
+        return $this->belongsTo(ExpenseCategory::class, 'expense_id'); 
     }
 }

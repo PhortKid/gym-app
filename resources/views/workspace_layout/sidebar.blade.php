@@ -41,11 +41,11 @@
             <div class="text-truncate">Members</div>
           </a>
         </li>
-        <li class="menu-item">
+      <!--  <li class="menu-item">
           <a href="/scann" class="menu-link" target="_blank">
             <div class="text-truncate">Scan</div>
           </a>
-        </li>
+        </li>-->
       </ul>
     </li>
 
@@ -175,6 +175,26 @@
         <li class="menu-item">
           <a href="/projected_expenses" class="menu-link">
             <div class="text-truncate">Expenses</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+      <!-- Projection -->
+      <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-credit-card-alt"></i>
+        <div class="text-truncate">Salary</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="/salary_management" class="menu-link">
+            <div class="text-truncate">Manage</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/salary_report" class="menu-link">
+            <div class="text-truncate">Report</div>
           </a>
         </li>
       </ul>

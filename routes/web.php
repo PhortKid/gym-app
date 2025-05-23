@@ -7,6 +7,11 @@ use App\Models\Customer;
 use App\Http\Controllers\ExpectedIncomeController;
 use App\Http\Controllers\ProjectedExpenseController;
 use App\Http\Controllers\SalaryManagement;
+use App\Http\Controllers\IncomeReportController;
+use App\Http\Controllers\ExpenseReportController;
+use App\Http\Controllers\ReportController;
+
+
 
 Route::get('/', function () {
 
@@ -62,6 +67,13 @@ Route::resource('/projected_expenses', ProjectedExpenseController::class);
 
 Route::resource('/salary_management', SalaryManagement::class);
 Route::get('/salary_report', [SalaryManagement::class,'salaryReport'])->name('salary_management.salaryReport');
+
+Route::get('/report/income', [IncomeReportController::class, 'show'])->name('income.report');
+Route::get('/report/expense', [ExpenseReportController::class, 'show'])->name('expense.report');
+
+//report
+Route::get('/income_expense', [ReportController::class, 'income_expense'])->name('income_expense.report');
+
 
 
 use Illuminate\Support\Facades\Mail;

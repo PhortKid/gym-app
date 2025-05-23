@@ -35,10 +35,10 @@
                 </tr>
 
                 
-                @include('dashboard.projected_expense.edit', ['projected_expense' => $projected_expense])
+                @include('workspace.projected_expense.edit', ['projected_expense' => $projected_expense])
 
              
-                @include('dashboard.projected_expense.delete', ['projected_expense' => $projected_expense])
+                @include('workspace.projected_expense.delete', ['projected_expense' => $projected_expense])
             @endforeach
         </tbody>
     </table>

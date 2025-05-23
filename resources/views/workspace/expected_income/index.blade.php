@@ -35,10 +35,10 @@
                 </tr>
 
                 
-                @include('dashboard.expected_income.edit', ['income' => $income])
+                @include('workspace.expected_income.edit', ['income' => $income])
 
              
-                @include('dashboard.expected_income.delete', ['income' => $income])
+                @include('workspace.expected_income.delete', ['income' => $income])
             @endforeach
         </tbody>
     </table>

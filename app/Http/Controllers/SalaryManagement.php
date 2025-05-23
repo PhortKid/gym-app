@@ -124,7 +124,7 @@ class SalaryManagement extends Controller
     });
 
     // Pass the filtered data and the current request to the view
-    return view('dashboard.salary_management.report', [
+    return view('workspace.salary_management.report', [
         'salaries' => $salaries,
         'totalBasicSalary' => $totalBasicSalary,
         'totalLoanDeductions' => $totalLoanDeductions,
