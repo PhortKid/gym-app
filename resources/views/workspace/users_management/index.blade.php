@@ -53,7 +53,7 @@ function add_user() {
   const specialization = document.getElementById('specialization').value;
   const password = document.getElementById('password').value;
 
-  fetch("http://127.0.0.1:8000/api/add_user", {
+  fetch("/api/add_user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

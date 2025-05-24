@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //fetch trainer
 
 function fetchTrainers() {
-  fetch("http://127.0.0.1:8000/api/users") 
+  fetch("/api/users") 
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', fetchTrainers);
 
 //fetch membership plan
 function fetchMembershipPlan() {
-  fetch("http://127.0.0.1:8000/api/membership_plan") 
+  fetch("/api/membership_plan") 
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -482,7 +482,7 @@ function  addCustomer(){
   
  
   
-  fetch("http://127.0.0.1:8000/api/add_customer", {
+  fetch("/api/add_customer", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

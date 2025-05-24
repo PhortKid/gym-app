@@ -46,7 +46,7 @@
 <script>
  //fetch Income Category
  function fetchIncomeCategories() {
-  fetch("http://127.0.0.1:8000/api/income_category") 
+  fetch("/api/income_category") 
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', fetchIncomeCategories);
 
  //fetch Expense Category
  function fetchExpenseCategories() {
-  fetch("http://127.0.0.1:8000/api/expense_category") 
+  fetch("/api/expense_category") 
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', fetchExpenseCategories);
     redirect: "follow"
   };
 
-  fetch("http://127.0.0.1:8000/api/add_expense", requestOptions)
+  fetch("/api/add_expense", requestOptions)
     .then(async response => {
       const resData = await response.json();
 

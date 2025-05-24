@@ -44,7 +44,7 @@
 <script>
   //fetch Income Category
 function fetchIncomeCategories() {
-  fetch("http://127.0.0.1:8000/api/income_category") 
+  fetch("/api/income_category") 
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', fetchIncomeCategories);
     redirect: "follow"
   };
 
-  fetch("http://127.0.0.1:8000/api/add_income", requestOptions)
+  fetch("/api/add_income", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.error('Error:', error));

@@ -65,9 +65,9 @@
 
     <script src="{{asset('assets/js/config.js')}}"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sweetalert2.min.css')}}">
       <!-- SweetAlert2 JS -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
    <style>
