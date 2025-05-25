@@ -19,17 +19,15 @@
       <table id="membership-plan-table" class="table table-striped">
         <thead>
           <tr>
-            <th>Member name</th>
-            <th>status</th>
-            <th>start_date</th>
-            <th>original_expiry_date</th>
-            <th>extended_expiry_date</th>
-            <th>assigned_days</th>
-            <th>attended_days</th>
-            <th>missed_days</th>
-            <th>remaining_days</th>
-            
-           
+          <th>Member Name</th>
+          <th>Status</th>
+          <th>Start Date</th>
+          <th>Original Expiry Date</th>
+          <th>Extended Expiry Date</th>
+          <th>Assigned Days</th>
+          <th>Attended Days</th>
+          <th>Missed Days</th>
+          <th>Remaining Days</th>
           </tr>
         </thead>
         <tbody id="attendance-plan-list" class="table-border-bottom-0">
@@ -67,10 +65,10 @@
             <td>${attendance.start_date}</td>
             <td>${attendance.original_expiry_date}</td>
             <td>${attendance.extended_expiry_date}</td>
-            <td>${attendance.assigned_days}</td>
-            <td>${attendance.attended_days}</td>
-            <td>${attendance.missed_days}</td>
-            <td>${attendance.remaining_days}</td>
+            <td>${parseInt(attendance.assigned_days)}</td>
+            <td>${parseInt(attendance.attended_days)}</td>
+            <td>${parseInt(attendance.missed_days)}</td>
+            <td>${parseInt(attendance.remaining_days)}</td>
             
 
             
