@@ -1,5 +1,8 @@
+@php
+                        use App\Models\SystemInfo;
+                        $system=SystemInfo::first();  
+@endphp
 <!doctype html>
-
 <html
   lang="en"
   class="layout-menu-fixed layout-compact"
@@ -71,6 +74,9 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
    <style>
+    body{
+      font-family: 'Lato', sans-serif;
+    }
     .swal2-container {
   z-index: 2000 !important;
 }
@@ -110,6 +116,31 @@
     background-color: #d1ecf1 !important;
     color: #0c5460 !important;
   }
+    }
+
+
+    /*small card */
+    .small-card {
+        min-height: auto;
+    }
+
+    .small-card .card-body {
+        padding: 0.75rem 1rem;
+    }
+
+    .small-card .card-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .small-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .avatar img {
+        width: 32px;
+        height: 32px;
     }
    </style>
 
@@ -176,25 +207,26 @@
                           </div>
                           <div class="flex-grow-1">
                             <h6 class="mb-0"></h6>
-                            <small class="text-body-secondary">Admin</small>
+                            <small class="text-body-secondary">{{Auth::user()->name}}</small>
                           </div>
                         </div>
                       </a>
                     </li>
-                    <li>
+                    {{--   <li>
                       <div class="dropdown-divider my-1"></div>
                     </li>
+                  
                     <li>
                       <a class="dropdown-item" href="#">
                         <i class="icon-base bx bx-user icon-md me-3"></i><span>My Profile</span>
                       </a>
-                    </li>
+                    </li>--}}
                 
                     <li>
                       <div class="dropdown-divider my-1"></div>
                     </li>
                     <li>
-                    <a href="{{ route('signout') }}" class="d-flex align-items-center">
+                    <a href="{{ route('signout') }}" class="dropdown-item">
                       <i class="icon-base bx bx-power-off icon-md me-3"></i>
                       <span>Log Out</span>
                     </a>
@@ -220,7 +252,9 @@
                 <div
                   class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
                   <div class="mb-2 mb-md-0">
-                   Amazing Fitness Gym©
+               
+                    {{ $system->name ?? 'App Name' }}
+                   @
                     <script>
                       document.write(new Date().getFullYear());
                     </script>

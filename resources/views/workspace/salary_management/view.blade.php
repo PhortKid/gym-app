@@ -12,15 +12,7 @@
       <div class="table-wrapper border-primary" id="salary-details-{{$salary->id}}" >
  
       <div class="report-header d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-          <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3">
-          <div>
-            <h3 class="mb-1">AMAZING FITNESS GYM</h3>
-            <p class="mb-0">Fitness & Wellness Center</p>
-            <p class="mb-0">Email: info@gymfitsolutions.com | Phone: +255 712 345 678</p>
-            <p class="mb-0">Address:Mshindo, Iringa, Tanzania</p>
-          </div>
-        </div>
+      @include('header')
         
       </div>
 

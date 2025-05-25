@@ -1,12 +1,12 @@
 @extends('workspace_layout.app')
 @section('content')
 
-<div class="container py-4">
+<div class="container pt-2 pb-4">
 <h1>Members</h1>
     <div class="row g-4">
 
     <div class="col-md-6 col-xl-4">
-    <div class="card h-100">
+    <div class="card small-card">
         <div class="card-body">
         <div class="card-title d-flex align-items-start justify-content-between mb-4">
             <div class="avatar flex-shrink-0">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="col-md-6 col-xl-4">
-    <div class="card h-100">
+    <div class="card small-card">
         <div class="card-body">
         <div class="card-title d-flex align-items-start justify-content-between mb-4">
             <div class="avatar flex-shrink-0">
@@ -50,7 +50,7 @@
     </div>
 
     <div class="col-md-6 col-xl-4">
-    <div class="card h-100">
+    <div class="card small-card">
         <div class="card-body">
         <div class="card-title d-flex align-items-start justify-content-between mb-4">
             <div class="avatar flex-shrink-0">
@@ -77,12 +77,12 @@
 
 
 
-<div class="container py-4">
+<div class="container pt-2 pb-4">
 <h1>Attendance</h1>
     <div class="row g-4">
 
     <div class="col-md-6 col-xl-4">
-    <div class="card h-100">
+    <div class="card small-card">
         <div class="card-body">
         <div class="card-title d-flex align-items-start justify-content-between mb-4">
             <div class="avatar flex-shrink-0">
@@ -104,7 +104,7 @@
     </div>
 
     <div class="col-md-6 col-xl-4">
-    <div class="card h-100">
+    <div class="card small-card">
         <div class="card-body">
         <div class="card-title d-flex align-items-start justify-content-between mb-4">
             <div class="avatar flex-shrink-0">
@@ -126,7 +126,7 @@
     </div>
 
     <div class="col-md-6 col-xl-4">
-    <div class="card h-100">
+    <div class="card small-card">
         <div class="card-body">
         <div class="card-title d-flex align-items-start justify-content-between mb-4">
             <div class="avatar flex-shrink-0">

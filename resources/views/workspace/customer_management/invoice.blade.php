@@ -68,10 +68,20 @@
           row.innerHTML = `
             <td><span>${customer.full_name}</span></td>
             <td>${customer.start_date}</td>
-            <td>${customer.expiry_date}</td>
+            <td>${customer.expiry_date ? customer.expiry_date : customer.start_date}</td>
             <td>${customer.payment_plan}</td>
             <td>${customer.membership_type ? customer.membership_type.name : 'N/A'}</td>
-            <td>${customer.payment_status}</td>
+            <td>
+              ${
+                customer.paid_amount >= customer.amount 
+                  ? (customer.paid_amount > customer.amount 
+                      ? 'Exceed' 
+                      : 'Paid')
+                  : (customer.paid_amount >= 1 
+                      ? 'Partial Paid' 
+                      : 'Not Paid')
+              }
+            </td>
             <td>
 
 
@@ -100,15 +110,7 @@
                                  <div class="for printing" id="printable-area">
                                   <!-- Header -->
                             <div class="report-header d-flex justify-content-between align-items-center">
-                              <div class="d-flex align-items-center">
-                                <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3">
-                                <div>
-                                  <h3 class="mb-1">AMAZING FITNESS GYM</h3>
-                                  <p class="mb-0">Fitness & Wellness Center</p>
-                                  <p class="mb-0">Email: info@gymfitsolutions.com | Phone:</p>
-                                  <p class="mb-0">Address:Mshindo, Iringa, Tanzania</p>
-                                </div>
-                              </div>
+                            @include('header')
                               <div class="text-end">
                                 <h5 class="mb-1">Invoice</h5>
                                 <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>
@@ -178,6 +180,21 @@
 
                               <div class="row mb-3">
                                 <div class="col-md-4">
+                                  <strong>Amount:</strong>
+                                  <div>${customer.amount} TZS</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Paid Amount:</strong>
+                                  <div>${customer.paid_amount} TZS</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Remain Amount:</strong>
+                                  <div>${customer.amount-customer.paid_amount} TZS</div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                              <div class="col-md-4">
                                   <strong>Membership Type:</strong>
                                   <div>${customer.membership_type ? customer.membership_type.name : 'N/A'}</div>
                                 </div>
@@ -185,16 +202,9 @@
                                   <strong>Responsible Trainer:</strong>
                                   <div>${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}</div>
                                 </div>
-                                <div class="col-md-4">
-                                  <strong>Amount:</strong>
-                                  <div>${customer.amount}TZS</div>
-                                </div>
-                              </div>
-
-                              <div class="row mb-3">
                                 <div class="col-4">
                                   <strong>Health Notes:</strong>
-                                  <div class="border p-2 rounded bg-light">
+                                  <div class="border p-2 rounded ">
                                     ${customer.health_notes || 'N/A'}
                                   </div>
                                 </div>

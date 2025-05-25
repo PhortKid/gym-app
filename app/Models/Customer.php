@@ -40,6 +40,13 @@ class Customer extends Model
     {
         return $this->belongsTo(MembershipPlan::class, 'membership_type_id');
     }
+
+    public function payments()
+{
+    return $this->hasMany(Payment::class, 'member_id');
+}
+
+
     
 
 }

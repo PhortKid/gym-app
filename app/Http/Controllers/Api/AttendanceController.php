@@ -20,6 +20,7 @@ class AttendanceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'member_id' => 'required',
+            'time_in' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -28,7 +29,7 @@ class AttendanceController extends Controller
 
         Attendance::create([
             'member_id' => $request->member_id,
-            'time_in' => Carbon::now(),
+            'time_in' => $request->time_in,
         ]);
 
         return response()->json(['status' => 'success', 'message' => 'Attendance Added']);

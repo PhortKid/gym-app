@@ -18,7 +18,7 @@ use App\Http\Controllers\Api\ExpenseCategoryController;
 use App\Http\Controllers\Api\IncomeController;
 use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\AttendanceTrackingController;
-use App\Http\Controllers\Api\SigninController;
+
 
 
 use Carbon\Carbon;
@@ -166,8 +166,12 @@ use App\Http\Controllers\Api\ReportController;
 Route::get('/reports/income-summary', [ReportController::class, 'incomeSummary']);
 Route::get('/reports/expense-summary', [ReportController::class, 'expenseSummary']);
 
+Route::post('add_payment', [PaymentController::class, 'add_payment']);//add payment
+Route::get('payments', [PaymentController::class, 'index']);
 
-Route::post('/signin', [SigninController::class, 'login']);
+
+
+
 
 Route::post('/logout', function (Request $request) {
     Auth::logout();

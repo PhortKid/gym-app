@@ -13,6 +13,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\SendQrCodeToCustomer;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -25,23 +26,67 @@ class CustomerManagementController extends Controller
         $this->smsService = $smsService;
     }
 
+  
+
         public function customers()
     {
-        $customers = Customer::with(['assigned_trainer', 'membership_type'])->get();
+        $customers = Customer::with(['assigned_trainer', 'membership_type'])
+            ->withSum('payments', 'amount')
+            ->get()
+            ->map(function ($customer) {
+                $customer->paid_amount = $customer->payments_sum_amount ?? 0;
+                unset($customer->payments_sum_amount);
+                return $customer;
+            });
+
         return response()->json($customers);
     }
 
-    public function invoice()
-    {
-        $customers = Customer::with(['assigned_trainer', 'membership_type'])->whereColumn('amount', '>', 'payed_amount')->get();
-        return response()->json($customers);
-    }
+            public function invoice()
+        {
+            $customers = Customer::with(['assigned_trainer', 'membership_type'])
+                ->withSum('payments', 'amount')
+                ->get()
+                ->filter(function ($customer) {
+                    return $customer->amount > ($customer->payments_sum_amount ?? 0);
+                })
+                ->map(function ($customer) {
+                    $customer->paid_amount = $customer->payments_sum_amount ?? 0;
+                    unset($customer->payments_sum_amount);
+                    return $customer;
+                })
+                ->values();
+
+            return response()->json($customers);
+        }
+
 
     public function paid_customer()
     {
-        $customers = Customer::with(['assigned_trainer', 'membership_type'])->whereColumn('payed_amount', 'amount')->get();
+        $customers = Customer::with(['assigned_trainer', 'membership_type'])
+            ->withSum('payments', 'amount')
+            ->get()
+            ->filter(function ($customer) {
+                return $customer->amount == $customer->payments_sum_amount;
+            })
+            ->map(function ($customer) {
+                $customer->paid_amount = $customer->payments_sum_amount ?? 0;
+                unset($customer->payments_sum_amount);
+                return $customer;
+            })
+            ->values();
+    
         return response()->json($customers);
     }
+
+      /*  $customers = Customer::with(['assigned_trainer', 'membership_type'])
+        ->withSum('payments', 'amount')
+        ->having('amount', '=', DB::raw('payments_sum_amount'))
+        ->get();
+    
+    
+        return response()->json($customers);
+    }*/
 
     public function add(Request $request){
        

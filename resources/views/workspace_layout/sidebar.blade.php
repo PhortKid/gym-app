@@ -2,7 +2,7 @@
   <div class="app-brand demo">
     <a href="#" class="app-brand-link">
       <span class="app-brand-logo demo">
-        <img src="{{ asset('favicon.png') }}" width="200" height="150" alt="Logo">
+        <img src="/logos/{{ $system->logo ?? 'App Name' }}" width="200" height="150" alt="Logo">
       </span>
     </a>
 
@@ -23,6 +23,8 @@
         <div class="text-truncate">Dashboard</div>
       </a>
     </li>
+    
+   
 
 
     <!-- Users -->
@@ -89,7 +91,7 @@
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="/attendance" class="menu-link">
-            <div class="text-truncate">Add</div>
+            <div class="text-truncate">Time in</div>
           </a>
         </li>
         <li class="menu-item">
@@ -222,6 +224,13 @@
         </li>
        
       </ul>
+    </li>
+
+    <li class="menu-item">
+      <a href="/system-info" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-wallet"></i>
+        <div class="text-truncate">System Info</div>
+      </a>
     </li>
 
 

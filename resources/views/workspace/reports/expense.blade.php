@@ -9,7 +9,18 @@
         <option value="monthly" {{ $filter == 'monthly' ? 'selected' : '' }}>Monthly</option>
         <option value="yearly" {{ $filter == 'yearly' ? 'selected' : '' }}>Yearly</option>
       </select>
+      <button class="btn btn-success" onclick="printContent()">Print Report</button>
     </div>
+
+    <div class="card-body printableeee" id="printable-area">
+            <!-- Header Section -->
+            <div class="report-header d-flex justify-content-between align-items-center mb-4">
+              @include('header')
+                <div class="text-end">
+                    <h5 class="mb-1">Expenses Report</h5>
+                    <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>
+                </div>
+            </div>
 
     <div class="card-body">
       <table class="table table-bordered">
@@ -40,6 +51,18 @@
     </div>
   </div>
 </div>
+
+</div>
+
+<script>
+    function printContent() {
+        var printArea = document.getElementById('printable-area').innerHTML;
+        var originalContent = document.body.innerHTML;
+        document.body.innerHTML = printArea;
+        window.print();
+        document.body.innerHTML = originalContent;
+    }
+</script>
 
 <script>
   document.getElementById('filter-select').addEventListener('change', function () {

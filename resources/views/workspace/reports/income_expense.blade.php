@@ -28,15 +28,7 @@
 <div class="container" id="printable-area">
       <!-- Header -->
       <div class="report-header d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-          <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3">
-          <div>
-            <h3 class="mb-1">AMAZING FITNESS GYM</h3>
-            <p class="mb-0">Fitness & Wellness Center</p>
-            <p class="mb-0">Email: info@gymfitsolutions.com | Phone: </p>
-            <p class="mb-0">Address:Mshindo, Iringa, Tanzania</p>
-          </div>
-        </div>
+        @include('header')
         <div class="text-end">
           <h5 class="mb-1">Income vs Expense Report</h5>
           <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>

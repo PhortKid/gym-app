@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Attendance;
 use App\Models\Customer;
+use App\Models\Payment;
 use App\Http\Controllers\ExpectedIncomeController;
 use App\Http\Controllers\ProjectedExpenseController;
 use App\Http\Controllers\SalaryManagement;
@@ -11,8 +12,10 @@ use App\Http\Controllers\IncomeReportController;
 use App\Http\Controllers\ExpenseReportController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\SystemInfoController;
+use App\Http\Controllers\SigninController;
 
-
+Route::resource('system-info', SystemInfoController::class);
 
 Route::get('/', function () {
 
@@ -25,27 +28,10 @@ Route::get('/', function () {
     $yearlyMember = Customer::whereYear('start_date', now()->year)->count();
 
     return view('welcome',compact('dailyCount','monthlyCount', 'yearlyCount','dailyMember','monthlyMember', 'yearlyMember'));
-});
+})->middleware('auth');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::get('/demo',function(){
-    $update=Customer::find('1');
-    $update->start_date="2025-05-9";
-    $update->expiry_date="2025-05-10";
-    $update->save();
-    
-});
-
-
+Route::middleware('auth')->group(function () { //auth middleware
+ 
 
 Route::view('users','workspace.users_management.index');
 Route::view('trainer','workspace.users_management.trainer');
@@ -62,6 +48,7 @@ Route::view('income_category','workspace.income_category.index');
 Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
 Route::view('signin', 'signin')->name('signin');
+Route::post('/signin', [SigninController::class, 'login']);
 
 Route::resource('/expected_incomes', ExpectedIncomeController::class);
 Route::resource('/projected_expenses', ProjectedExpenseController::class);
@@ -76,6 +63,27 @@ Route::get('/report/expense', [ExpenseReportController::class, 'show'])->name('e
 Route::get('/income_expense', [ReportController::class, 'income_expense'])->name('income_expense.report');
 
 Route::get('pay', [PayController::class, 'pay'])->name('pay');
+
+
+
+
+
+
+});// end of auth middleware
+
+Route::get('/demo',function(){
+    $payment = Payment::where('member_id', '1')->first();
+
+    if ($payment) {
+        $payment->amount = 3000;
+        $payment->save();
+    }
+
+});
+
+
+
+
 
 
 

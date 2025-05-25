@@ -45,15 +45,7 @@
         <div class="card-body printableeee" id="printable-area">
             <!-- Header Section -->
             <div class="report-header d-flex justify-content-between align-items-center mb-4">
-                <div class="d-flex align-items-center">
-                    <img src="{{ asset('favicon.png') }}" alt="Company Logo" class="company-logo me-3" style="height: 110px;">
-                    <div>
-                        <h4 class="mb-1">AMAZING FITNESS GYM</h4>
-                        <p class="mb-0">Fitness & Wellness Center</p>
-                        <p class="mb-0">Email: info@gymfitsolutions.com | Phone: +255 712 345 678</p>
-                        <p class="mb-0">Address: Mshindo, Iringa, Tanzania</p>
-                    </div>
-                </div>
+              @include('header')
                 <div class="text-end">
                     <h5 class="mb-1">Salary Report</h5>
                     <p class="mb-0">Date: {{ \Carbon\Carbon::today()->toFormattedDateString() }}</p>

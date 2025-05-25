@@ -30,7 +30,7 @@
           <h4 class="mb-1 text-center">Welcome to Amazing Fitness Gym</h4>
           <p class="mb-6 text-center">Please sign-in to your account and start the adventure</p>
 
-          <form id="loginForm" class="mb-6">
+          <form action="/signin" method="post" class="mb-6">
             <div class="mb-6">
               <label for="email" class="form-label">Email or Username</label>
               <input
@@ -60,7 +60,17 @@
               <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
             </div>
           </form>
-          <p id="message" style="color: red; margin-top: 10px;"></p>
+          <p>
+                @if ($errors->any())
+                        <div>
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <p style="color:red">{{ $error }}</p>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </p>
         </div>
       </div>
       <!-- /Register -->
@@ -72,31 +82,6 @@
 
 
 
-<script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        axios.post('/api/signin', {
-            email: email,
-            password: password
-        }).then(response => {
-            document.getElementById("message").style.color = "green";
-            document.getElementById("message").innerText = response.data.message;
-
-            // You can save token to localStorage or redirect
-             localStorage.setItem('token', response.data.access_token);
-             window.location.href = '/'; // example redirect
-        }).catch(error => {
-            document.getElementById("message").style.color = "red";
-            document.getElementById("message").innerText =
-                error.response?.data?.message || 'Login failed';
-        });
-    });
-</script>
 
 </body>
 </html>
