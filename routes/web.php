@@ -47,8 +47,7 @@ Route::view('financial_report','workspace.reports.financial_report');
 Route::view('income_category','workspace.income_category.index');
 Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
-Route::view('signin', 'signin')->name('signin');
-Route::post('/signin', [SigninController::class, 'login']);
+
 
 Route::resource('/expected_incomes', ExpectedIncomeController::class);
 Route::resource('/projected_expenses', ProjectedExpenseController::class);
@@ -70,6 +69,8 @@ Route::get('pay', [PayController::class, 'pay'])->name('pay');
 
 
 });// end of auth middleware
+Route::view('signin', 'signin')->name('signin');
+Route::post('/signin', [SigninController::class, 'login']);
 
 Route::get('/demo',function(){
     $payment = Payment::where('member_id', '1')->first();
