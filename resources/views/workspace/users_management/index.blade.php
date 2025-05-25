@@ -5,7 +5,7 @@
   
     @include('workspace.users_management.add')
     <div class="card-header d-flex justify-content-between align-items-center">
-  <h5 class="mb-0">Users</h5>
+  <h5 class="mb-0">Staff</h5>
   <div class="d-flex align-items-center gap-2">
     <!-- Export Button Container -->
     <div id="export-buttons" class="btn-group">
@@ -115,7 +115,7 @@ function add_user() {
         toast: true,
         position: 'top-end',
         icon: 'success',
-        title: 'User added successfully!',
+        title: 'Staff added successfully!',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
@@ -139,7 +139,7 @@ function add_user() {
           toast: true,
           position: 'top-end',
           icon: 'error',
-          title: 'Failed to add user',
+          title: 'Failed to add Staff',
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -148,7 +148,7 @@ function add_user() {
           }
         });
       }
-      console.error('Add user error:', error);
+      console.error('Add Staff error:', error);
     });
 }
 
@@ -213,7 +213,7 @@ function fetchUsers() {
             <div class="modal-dialog modal-xl" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel4">View Users</h5>
+                  <h5 class="modal-title" id="exampleModalLabel4">View Staff</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -261,7 +261,7 @@ function fetchUsers() {
                             <div class="modal-dialog modal-sm" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel2">Delete User</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel2">Delete Staff</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">

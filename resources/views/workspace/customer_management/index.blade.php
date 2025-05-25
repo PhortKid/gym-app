@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </a> 
             |
             <a href="#" class="text-warning mx-3" data-bs-toggle="modal" data-bs-target="#Mark${customer.id}">
-            <i class="bx bx-credit-card me-1"></i>  Mark 
+            <i class="menu-icon tf-icons bx bx-user-check"></i>  Attend
             </a> 
             |
             <a href="#" class="text-danger ms-3"  onclick="deleteCustomer(${customer.id})">

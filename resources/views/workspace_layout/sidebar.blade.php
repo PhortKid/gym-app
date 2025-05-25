@@ -31,7 +31,7 @@
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-group"></i>
-        <div class="text-truncate">Users</div>
+        <div class="text-truncate">Staff</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
@@ -133,7 +133,7 @@
     <!-- Expense -->
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-credit-card-alt"></i>
+      <i class="menu-icon tf-icons bx bx-wallet"></i>
         <div class="text-truncate">Expense Module</div>
       </a>
       <ul class="menu-sub">
@@ -160,7 +160,8 @@
      <!-- Projection -->
      <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-credit-card-alt"></i>
+      <i class="menu-icon tf-icons bx bx-line-chart"></i>
+
         <div class="text-truncate">Projections</div>
       </a>
       <ul class="menu-sub">
@@ -180,7 +181,7 @@
       <!-- Projection -->
       <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-credit-card-alt"></i>
+      <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
         <div class="text-truncate">Salary</div>
       </a>
       <ul class="menu-sub">
