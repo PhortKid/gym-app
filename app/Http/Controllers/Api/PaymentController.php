@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Models\IncomeCategory;
+use App\Models\Income;
 
 class PaymentController extends Controller
 {
@@ -35,6 +37,14 @@ class PaymentController extends Controller
         'amount'=>$request->pay_amount,
         'payment_date'=>$request->pay_date,
         ]);
+        $membershipCategory = IncomeCategory::firstOrCreate(['name' => 'Membership Revenue']);
+            Income::create([
+                'amount' => $request->pay_amount,
+                'description' => 'Membeship Revenue',
+                'date' => $request->pay_date,
+                'category_id' => $membershipCategory->id, 
+                'payment_type' => $request->pay_payment_method,
+            ]);
 
 
 

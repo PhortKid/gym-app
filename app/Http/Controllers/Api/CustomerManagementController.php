@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Mail\SendQrCodeToCustomer;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\IncomeCategory;
+use App\Models\Income;
 
 
 
@@ -144,6 +146,15 @@ class CustomerManagementController extends Controller
                 'payment_date'=>Carbon::now(),
                 'amount'=>$customer->amount,
                 'payment_method'=>$request->payment_method,
+            ]);
+
+            $membershipCategory = IncomeCategory::firstOrCreate(['name' => 'Membership Revenue']);
+            Income::create([
+                'amount' => $request->payed_amount,
+                'description' => 'Membeship Revenue',
+                'date' => $request->start_date,
+                'category_id' => $membershipCategory->id, 
+                'payment_type' => $request->payment_method,
             ]);
         
        

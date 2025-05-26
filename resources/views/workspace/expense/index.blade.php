@@ -118,17 +118,17 @@ document.addEventListener('DOMContentLoaded', fetchExpenseCategories);
           const row = document.createElement('tr');
           row.innerHTML = `
             <td><span>${expense.amount}</span></td>
-            <td><span>${expense.category_id}</span></td>
-            <td><span>${expense.income_id}</span></td>
+            <td><span>${expense.category ? expense.category.name : 'N/A'}</span></td>
+            <td><span>${expense.income_category ? expense.income_category.name : 'N/A'}</span></td>
             <td><span>${expense.payment_method}</span></td>
             <td><span>${expense.status}</span></td>
             <td>
             
 
-            <div class="d-flex gap-2">
+         <!--   <div class="d-flex gap-2">
             <a class="dropdown-item d-flex text-primary align-items-center px-2" href="#" data-bs-toggle="modal" data-bs-target="#editIncomeCategory${expense.id}">
               <i class="bx bx-edit-alt me-1 "></i> Edit
-            </a>
+            </a>-->
             
             <a class="dropdown-item d-flex align-items-center px-2 text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteExpense${expense.id}">
               <i class="bx bx-trash me-1"></i> Delete

@@ -25,9 +25,9 @@
         <label class="form-label" for="name">Payment Type</label>
            <select name="" id="payment_type" class="form-control">
             <option value="">-- Select Payement Type --</option>
-            <option value="cash">cash</option>
-            <option value="bank">bank</option>
-            <option value="mobile">mobile</option>
+            <option value="Cash">cash</option>
+            <option value="Bank">bank</option>
+            <option value="Mobile Money">mobile</option>
            </select>
       </div>
       <div class="col-sm-12 form-controlm">

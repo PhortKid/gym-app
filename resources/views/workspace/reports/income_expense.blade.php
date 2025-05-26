@@ -55,7 +55,7 @@
                     <td>{{ $income_category->name }}</td>
                     <td>{{ number_format($income_category->total_amount, 2) }}</td>
                     <td>{{ number_format($expected_incomes[$income_category->id][$expectedField] ?? 0, 2) }}</td>
-                    <td>{{ number_format($expected_incomes[$income_category->id][$expectedField]-$income_category->total_amount, 2) }}</td>
+                    <td>{{ number_format($income_category->total_amount - ($expected_incomes[$income_category->id][$expectedField] ?? 0), 2) }}</td>
                 </tr>
                 @php
                     $incomeTotal += $income_category->total_amount;
@@ -91,7 +91,7 @@
                     <td>{{ $expense_category->name }}</td>
                     <td>{{ number_format($expense_category->total_amount , 2) }}</td>
                     <td>{{ number_format($projected_expenses[$expense_category->id][$expectedField] ?? 0, 2) }}</td>
-                    <td>{{ number_format($projected_expenses[$expense_category->id][$expectedField]  - $expense_category->total_amount, 2) }}</td>
+                    <td>  {{ number_format($expense_category->total_amount - ($projected_expenses[$expense_category->id][$expectedField] ?? 0), 2) }}</td>
                 </tr>
                 @php
                     $expenseTotal += $expense_category->total_amount ?? 0;

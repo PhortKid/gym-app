@@ -11,7 +11,7 @@ class IncomeController extends Controller
 {
     
     public function all(){
-        return response()->json(Income::all());
+        return response()->json(Income::with('category')->get());
     }
 
     public function add(Request $request){

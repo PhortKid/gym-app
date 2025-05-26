@@ -11,7 +11,7 @@ class ExpenseController extends Controller
 {
     
     public function all(){
-        return response()->json(Expense::all());
+        return response()->json(Expense::with(['category','income_category'])->get());
     }
 
     public function add(Request $request){

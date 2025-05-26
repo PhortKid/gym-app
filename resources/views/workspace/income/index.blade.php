@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', fetchIncomeCategories);
           const row = document.createElement('tr');
           row.innerHTML = `
             <td><span>${income.amount}</span></td>
-            <td><span>${income.category}</span></td>
+            <td><span>${income.category ? income.category.name :'N/A'}</span></td>
             <td><span>${income.date}</span></td>
             <td><span>${income.description}</span></td>
             <td>
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', fetchIncomeCategories);
                                         <label for="name" class="form-label">Income Category</label>
                                         <select name="" id="income_category_id${income.id}" class="form-control">
                                           <option value="">-- Select Income Category --</option>
-                                          <option selected value="${income.category_id}">${income.category_id}</option>
+                                          <option selected value="${income.category_id}">${income.category ? income.category.name :'N/A'}</option>
                                         </select>
                                     </div>
                                     </div>

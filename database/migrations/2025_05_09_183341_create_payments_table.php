@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('member_id')->constrained('customers')->onDelete('cascade');
             $table->date('payment_date');
             $table->decimal('amount', 10, 2);
-            $table->enum('payment_method', ['Cash', 'Mobile Money', 'Card', 'Bank'])->default('Cash');
+            $table->enum('payment_method', ['Cash', 'Mobile Money', 'Bank'])->default('Cash');
             $table->string('invoice_number')->nullable();
             $table->timestamps();
         });
