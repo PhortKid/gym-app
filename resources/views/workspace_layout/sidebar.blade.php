@@ -199,31 +199,34 @@
     </li>
 
     
-      <!-- Sales -->
-      <li class="menu-item">
+   <!-- Sales -->
+    <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-      <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+        <i class="menu-icon bx bx-cart"></i>
         <div class="text-truncate">Stock & Sales</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="/products" class="menu-link">
+            <i class="menu-icon bx bx-package"></i>
             <div class="text-truncate">Product</div>
           </a>
         </li>
         <li class="menu-item">
           <a href="/sales" class="menu-link">
+            <i class="menu-icon bx bx-cart"></i>
             <div class="text-truncate">Sales</div>
           </a>
         </li>
         <li class="menu-item">
           <a href="/sales/report" class="menu-link">
+            <i class="menu-icon bx bx-bar-chart-alt-2"></i>
             <div class="text-truncate">Report</div>
           </a>
         </li>
-        
       </ul>
     </li>
+
 
 
 
