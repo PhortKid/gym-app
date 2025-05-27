@@ -51,14 +51,7 @@
         <input type="text" class="form-control" id="address" name="address">
       </div>
 
-            <!-- Membership Type -->
-    <div class="mb-3">
-        <label class="form-label">Membership Type</label>
-        <select class="form-control" id="membership_type_id" name="membership_type_id">
-          <option value="">-- Select Membership Type --</option>
-          <!-- Populate from DB if needed -->
-        </select>
-      </div>
+   
 
       <!-- Payment Plan -->
       <div class="mb-3">
@@ -66,8 +59,12 @@
         <select  class="form-control" id="payment_plan" name="payment_plan">
           <option >-- Select Payment Plan --</option>
           <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Two Weeks">Two Weeks</option>
           <option value="Monthly">Monthly</option>
-          
+          <option value="Three Monthly">Three Monthly</option>
+          <option value="Six Monthly">Six Monthly</option>
+          <option value="Annual">Annual</option>
         </select>
       </div>
       <!-- Start Date -->
@@ -101,7 +98,7 @@
 
          <!-- card_number-->
       <div class="mb-3">
-        <label class="form-label">card_number</label>
+        <label class="form-label">Card Number</label>
         <input type="text" class="form-control" id="card_number" name="card_number">
       </div>
 
@@ -121,6 +118,7 @@
          <div class="mb-3">
         <label class="form-label">Membership Category</label>
         <select name="membership_category" id="membership_category" class="form-control">
+        <option >-- Select Membership Category --</option>
           <option value="Individual">Individual</option>
           <option value="Family">Family</option>
           <option value="Group">Group</option>
@@ -134,6 +132,7 @@
      <div class="mb-3">
         <label class="form-label">Programs</label>
         <select name="programs" id="programs" class="form-control">
+        <option >-- Select Programs --</option>
           <option value="Cardio">Cardio</option>
           <option value="Aerobics">Aerobics</option>
           <option value="Kata Box">Kata Box</option>
@@ -148,6 +147,7 @@
           <div class="mb-3">
               <label class="form-label">Exercise Intentions</label>
               <select name="exercise_intentions" id="exercise_intentions" class="form-control">
+              <option >-- Select Exercise Intentions --</option>
                 <option value="Lose Body Weight">Lose Body Weight</option>
                 <option value="Maintain Weight">Maintain Weight</option>
                 <option value="Body Building">Body Building</option>
@@ -158,6 +158,7 @@
           <div class="mb-3">
               <label class="form-label">Insurance Category</label>
               <select name="insurance_category" id="insurance_category" class="form-control">
+              <option >-- Select Insurance Category --</option>
                 <option value="Jubilee">Jubilee</option>
                 <option value="Strategies">Strategies</option>
                 <option value="Assemble">Assemble</option>
@@ -205,7 +206,7 @@
          <option value="Morning">Morning</option>
          <option value="Afternoon">Afternoon</option>
          <option value="Evening">Evening</option>
-         <option value="Both">Both</option>
+         <option value="Any Time">Any Time</option>
         </select>
       </div>
       <!-- Total Amount -->

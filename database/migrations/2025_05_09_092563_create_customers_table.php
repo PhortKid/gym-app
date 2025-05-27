@@ -32,13 +32,13 @@ return new class extends Migration
             $table->string('next_of_kin_name')->nullable();
             $table->string('next_of_kin_relation')->nullable();
             $table->string('next_of_kin_phone')->nullable();
-            $table->foreignId('membership_type_id')->constrained('membership_plans');
+          //  $table->foreignId('membership_type_id')->constrained('membership_plans');
             $table->date('start_date')->nullable();
             $table->date('expiry_date')->nullable();
             $table->enum('payment_plan', ['Daily', 'Monthly', 'Quarterly', 'Annually'])->nullable();
             $table->enum('payment_status', ['Full Paid', 'Partial', 'Not Paid'])->default('Not Paid');
             $table->text('health_notes')->nullable();
-            $table->enum('preferred_workout_time', ['Morning', 'Afternoon', 'Evening', 'Both'])->nullable();
+            $table->string('preferred_workout_time')->nullable();
             $table->string('profile_photo')->nullable();
             $table->foreignId('assigned_trainer_id')->nullable()->constrained('users')->nullOnDelete();
             $table->decimal('amount', 10, 2)->nullable();

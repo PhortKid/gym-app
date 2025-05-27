@@ -33,7 +33,7 @@ class CustomerManagementController extends Controller
 
         public function customers()
     {
-        $customers = Customer::with(['assigned_trainer', 'membership_type'])
+        $customers = Customer::with('assigned_trainer')
             ->withSum('payments', 'amount')
             ->get()
             ->map(function ($customer) {
@@ -47,7 +47,7 @@ class CustomerManagementController extends Controller
 
             public function invoice()
         {
-            $customers = Customer::with(['assigned_trainer', 'membership_type'])
+            $customers = Customer::with('assigned_trainer')
                 ->withSum('payments', 'amount')
                 ->get()
                 ->filter(function ($customer) {
@@ -66,7 +66,7 @@ class CustomerManagementController extends Controller
 
     public function paid_customer()
     {
-        $customers = Customer::with(['assigned_trainer', 'membership_type'])
+        $customers = Customer::with('assigned_trainer')
             ->withSum('payments', 'amount')
             ->get()
             ->filter(function ($customer) {

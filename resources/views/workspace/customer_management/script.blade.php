@@ -338,34 +338,7 @@ function fetchTrainers() {
 document.addEventListener('DOMContentLoaded', fetchTrainers);
 
 
-//fetch membership plan
-function fetchMembershipPlan() {
-  fetch("/api/membership_plan") 
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      const planSelect = document.getElementById('membership_type_id');
-      planSelect.innerHTML = '<option value="">-- Select Membership Plan --</option>'; 
 
-      data.forEach(plan => {
-        const option = document.createElement('option');
-        option.value = plan.id;
-        option.setAttribute('data-amount', plan.cost); 
-        option.textContent = plan.name+' '+plan.cost+' TZS'; 
-        planSelect.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching membership plans:', error);
-    });
-}
-
-// Call this function when the page loads or when the modal opens
-document.addEventListener('DOMContentLoaded', fetchMembershipPlan);
 
 
 function  addCustomer(){
@@ -379,7 +352,7 @@ function  addCustomer(){
  const next_of_kin_name = document.getElementById('next_of_kin_name').value;
  const next_of_kin_relation = document.getElementById('next_of_kin_relation').value;
  const next_of_kin_phone = document.getElementById('next_of_kin_phone').value;
- const membership_type_id= document.getElementById('membership_type_id').value;
+// const membership_type_id= document.getElementById('membership_type_id').value;
  const start_date = document.getElementById('start_date').value;
  const expiry_date= document.getElementById('expiry_date').value;
  const payment_plan = document.getElementById('payment_plan').value;
@@ -419,7 +392,7 @@ function  addCustomer(){
        next_of_kin_name,
        next_of_kin_relation,
        next_of_kin_phone,
-       membership_type_id,
+      // membership_type_id,
        start_date ,
        expiry_date,
        payment_plan ,

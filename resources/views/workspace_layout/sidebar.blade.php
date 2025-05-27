@@ -54,11 +54,11 @@
         <div class="text-truncate">Member</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item">
+      {{--<li class="menu-item">
           <a href="/membership_plan" class="menu-link">
             <div class="text-truncate">Membership Type</div>
           </a>
-        </li>
+        </li>--}}  
         <li class="menu-item">
           <a href="/customer" class="menu-link">
             <div class="text-truncate">Members</div>

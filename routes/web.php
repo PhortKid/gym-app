@@ -20,24 +20,22 @@ use App\Http\Controllers\AttendanceChartController;
 
 use App\Services\BMIService;
 
-Route::get('calculate_bmi',
 
-function (BMIService $bmiService)
-{
-    $bmi = $bmiService->calculate(5, 20);
-    $status = $bmiService->classify($bmi);
+use Illuminate\Support\Facades\DB;
+    Route::get('/fix-membership-type', function () {
+    DB::statement('ALTER TABLE customers DROP FOREIGN KEY customers_membership_type_id_foreign');
+    DB::statement('ALTER TABLE customers MODIFY membership_type_id BIGINT UNSIGNED NULL');
+    DB::statement('ALTER TABLE customers ADD CONSTRAINT customers_membership_type_id_foreign FOREIGN KEY (membership_type_id) REFERENCES membership_plans(id)');
 
-    return response()->json([
-        'bmi' => round($bmi, 2),
-        'status' => $status
-    ]);
-}
+    return 'Membership type column updated successfully!';
+});
 
 
 
 
 
-);
+
+
 
 
 

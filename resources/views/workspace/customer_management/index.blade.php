@@ -43,6 +43,7 @@
 
 
 <script>
+  /*
 //calculate amount
 const membershipTypeSelect = document.getElementById('membership_type_id');
   const paymentPlanSelect = document.getElementById('payment_plan');
@@ -108,6 +109,66 @@ const membershipTypeSelect = document.getElementById('membership_type_id');
   });
 
 //endof calculate amount
+*/
+
+const paymentPlanSelect = document.getElementById('payment_plan');
+  const startDateInput = document.getElementById('start_date');
+  const expiryDateInput = document.getElementById('expiry_date');
+  const amountInput = document.getElementById('calculated_amount');
+
+  const planPrices = {
+    'Daily': 5000,
+    'Weekly': 25000,
+    'Two Weeks': 50000,
+    'Monthly': 100000,
+    'Three Monthly': 280000,
+    'Six Monthly': 560000,
+    'Annual': 1100000
+  };
+
+  const planDurations = {
+    'Daily': 1,
+    'Weekly': 7,
+    'Two Weeks': 14,
+    'Monthly': 30,
+    'Three Monthly': 90,
+    'Six Monthly': 180,
+    'Annual': 365
+  };
+
+  function calculateAmountAndExpiry() {
+    const plan = paymentPlanSelect.value;
+    const startDateValue = startDateInput.value;
+
+    if (!plan || !startDateValue) {
+      amountInput.value = '';
+      expiryDateInput.value = '';
+      return;
+    }
+
+    const startDate = new Date(startDateValue);
+    if (isNaN(startDate.getTime())) {
+      amountInput.value = '';
+      expiryDateInput.value = '';
+      return;
+    }
+
+    // Set amount
+    amountInput.value = planPrices[plan];
+
+    // Set expiry date
+    const duration = planDurations[plan];
+    const expiryDate = new Date(startDate);
+    expiryDate.setDate(expiryDate.getDate() + duration);
+    expiryDateInput.value = expiryDate.toISOString().split('T')[0]; // Format as yyyy-mm-dd
+  }
+
+  // Listen for changes
+  paymentPlanSelect.addEventListener('change', calculateAmountAndExpiry);
+  startDateInput.addEventListener('change', calculateAmountAndExpiry);
+
+
+
 
 //paid and not paid function
 document.addEventListener('DOMContentLoaded', function () {

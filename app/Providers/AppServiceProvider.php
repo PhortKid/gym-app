@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use App\Models\MembershipPlan;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,14 +49,7 @@ class AppServiceProvider extends ServiceProvider
                 }
             }
 
-            if (Schema::hasTable('membership_plans')) {
-                if (MembershipPlan::count() === 0) {
-                    MembershipPlan::create([
-                        'name' => 'Standard',
-                        'cost' => '5000'
-                    ]);
-                }
-            }
+          
             
 
     }

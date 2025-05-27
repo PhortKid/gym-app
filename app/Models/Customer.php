@@ -45,10 +45,7 @@ class Customer extends Model
         return $this->belongsTo(User::class, 'assigned_trainer_id');
     }
     
-    public function membership_type()
-    {
-        return $this->belongsTo(MembershipPlan::class, 'membership_type_id');
-    }
+
 
     public function payments()
 {

@@ -270,34 +270,7 @@ function fetchTrainers() {
 document.addEventListener('DOMContentLoaded', fetchTrainers);
 
 
-//fetch membership plan
-function fetchMembershipPlan() {
-  fetch("/api/membership_plan") 
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      const planSelect = document.getElementById('membership_type_id');
-      planSelect.innerHTML = '<option value="">-- Select Membership Plan --</option>'; 
 
-      data.forEach(plan => {
-        const option = document.createElement('option');
-        option.value = plan.id;
-        option.setAttribute('data-amount', plan.cost); 
-        option.textContent = plan.name; 
-        planSelect.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching membership plans:', error);
-    });
-}
-
-// Call this function when the page loads or when the modal opens
-document.addEventListener('DOMContentLoaded', fetchMembershipPlan);
 
 </script>
 
