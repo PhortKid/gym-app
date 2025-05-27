@@ -149,20 +149,56 @@
 
                               <div class="row mb-3">
                               <div class="col-md-4">
-                                  <strong>Membership Type:</strong>
-                                  <div>${customer.membership_type ? customer.membership_type.name : 'N/A'}</div>
+                                  <strong>Body Weight:</strong>
+                                  <div>${customer.body_weight}</div>
+                                </div>
+                                <div class="col-md-4">
+                                  <strong>Body Height:</strong>
+                                  <div>${customer.body_height}</div>
+                                </div>
+                                <div class="col-4">
+                                  <strong>BMI:</strong>
+                                  <div class="">
+                                    ${customer.bmi || 'N/A'}
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                              <div class="col-md-4">
+                                  <strong>Membership Category:</strong>
+                                  <div>${customer.membership_category}</div>
                                 </div>
                                 <div class="col-md-4">
                                   <strong>Responsible Trainer:</strong>
                                   <div>${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}</div>
                                 </div>
                                 <div class="col-4">
+                                  <strong>Recomended Programs:</strong>
+                                  <div class="">
+                                    ${customer.programs || 'N/A'}
+                                  </div>
+                                </div>
+                              </div>
+
+
+                              <div class="row mb-3">
+                              <div class="col-4">
+                                  <strong>Insurance Category:</strong>
+                                  <div class="">
+                                    ${customer.insurance_category || 'N/A'}
+                                  </div>
+                                </div>
+                                <div class="col-4">
                                   <strong>Health Notes:</strong>
-                                  <div class="border p-2 rounded ">
+                                  <div class="">
                                     ${customer.health_notes || 'N/A'}
                                   </div>
                                 </div>
                               </div>
+
+
+
                             </div>
 
                           </div>
@@ -731,7 +767,7 @@ function mark(){
        toast: true,
        position: 'top-end',
        icon: 'success',
-       title: 'Payment added successfully!',
+       title: 'Attendance added successfully!',
        showConfirmButton: false,
        timer: 3000,
        timerProgressBar: true,

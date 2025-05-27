@@ -135,7 +135,7 @@ class CustomerManagementController extends Controller
             'payment_plan'=>$request->payment_plan,
             'address'=>$request->address,
             'health_notes' => $request->health_notes,
-            'membership_type_id' => $request->membership_type_id,
+          //  'membership_type_id' => $request->membership_type_id,
             'assigned_trainer_id' => $request->assigned_trainer_id,
             'profile_photo' => $request->profile_photo,
             'preferred_workout_time' => $request->preferred_workout_time,

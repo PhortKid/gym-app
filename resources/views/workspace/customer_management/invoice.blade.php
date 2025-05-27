@@ -24,7 +24,6 @@
             <th>Start Date</th>
             <th>Expire Date</th>
             <th>Payment Plan</th>
-            <th>Membership Type</th>
             <th>Payment Status</th>
             <th>Action</th>
           </tr>
@@ -70,7 +69,7 @@
             <td>${customer.start_date}</td>
             <td>${customer.expiry_date ? customer.expiry_date : customer.start_date}</td>
             <td>${customer.payment_plan}</td>
-            <td>${customer.membership_type ? customer.membership_type.name : 'N/A'}</td>
+      
             <td>
               ${
                 customer.paid_amount >= customer.amount 
