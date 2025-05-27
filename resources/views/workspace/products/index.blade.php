@@ -33,8 +33,8 @@
         @foreach($products as $product)
             <tr>
                 <td>{{ $product->name }}</td>
-                <td>{{ $product->buying_price }}</td>
-                <td>{{ $product->selling_price }}</td>
+                <td>{{ $product->purchase_price }} TZS</td>
+                <td>{{ $product->selling_price }} TZS</td>
                 <td>{{ $product->stock_quantity }}</td>
                 <td>
                     <!-- Edit Button -->

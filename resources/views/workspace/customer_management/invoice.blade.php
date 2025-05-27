@@ -117,97 +117,34 @@
                               </div>
                             </div>
 
-                            <div class="container-fluid">
-                              <div class="row mb-3">
-                                <div class="col-md-4">
-                                  <strong>Full Name:</strong>
-                                  <div>${customer.full_name}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Email:</strong>
-                                  <div>${customer.email}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Gender:</strong>
-                                  <div>${customer.gender}</div>
-                                </div>
-                              </div>
+                            <div class="row mb-3">
+                              <div class="col-md-4"><strong>Full Name:</strong> ${customer.full_name}</div>
+                              <div class="col-md-4"><strong>Email:</strong> ${customer.email}</div>
+                              <div class="col-md-4"><strong>Phone:</strong> ${customer.phone_number}</div>
+                            </div>
 
-                              <div class="row mb-3">
-                                <div class="col-md-4">
-                                  <strong>Phone Number:</strong>
-                                  <div>${customer.phone_number}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Nationality:</strong>
-                                  <div>${customer.nationality}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Start Date:</strong>
-                                  <div>${customer.start_date}</div>
-                                </div>
-                              </div>
+                            <div class="row mb-3">
+                              <div class="col-md-4"><strong>Start Date:</strong> ${customer.start_date}</div>
+                              <div class="col-md-4"><strong>Expiry Date:</strong> ${customer.expiry_date}</div>
+                              <div class="col-md-4"><strong>Gender:</strong> ${customer.gender}</div>
+                            </div>
 
-                              <div class="row mb-3">
-                                <div class="col-md-4">
-                                  <strong>Expiry Date:</strong>
-                                  <div>${customer.expiry_date}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Next of Kin Name:</strong>
-                                  <div>${customer.next_of_kin_name}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Next of Kin Relation:</strong>
-                                  <div>${customer.next_of_kin_relation}</div>
-                                </div>
-                              </div>
+                            <div class="row mb-3">
+                              <div class="col-md-4"><strong>Amount:</strong> ${customer.amount} TZS</div>
+                              <div class="col-md-4"><strong>Paid:</strong> ${customer.paid_amount} TZS</div>
+                              <div class="col-md-4"><strong>Remaining:</strong> ${customer.amount - customer.paid_amount} TZS</div>
+                            </div>
 
-                              <div class="row mb-3">
-                                <div class="col-md-4">
-                                  <strong>Next of Kin Phone:</strong>
-                                  <div>${customer.next_of_kin_phone}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Payment Plan:</strong>
-                                  <div>${customer.payment_plan}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Preferred Workout Time:</strong>
-                                  <div>${customer.preferred_workout_time}</div>
-                                </div>
-                              </div>
+                            <div class="row mb-3">
+                              <div class="col-md-4"><strong>Plan:</strong> ${customer.payment_plan}</div>
+                              <div class="col-md-4"><strong>Trainer:</strong> ${customer.assigned_trainer?.name || 'N/A'}</div>
+                              <div class="col-md-4"><strong>Membership:</strong> ${customer.membership_type?.name || 'N/A'}</div>
+                            </div>
 
-                              <div class="row mb-3">
-                                <div class="col-md-4">
-                                  <strong>Amount:</strong>
-                                  <div>${customer.amount} TZS</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Paid Amount:</strong>
-                                  <div>${customer.paid_amount} TZS</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Remain Amount:</strong>
-                                  <div>${customer.amount-customer.paid_amount} TZS</div>
-                                </div>
-                              </div>
-
-                              <div class="row mb-3">
-                              <div class="col-md-4">
-                                  <strong>Membership Type:</strong>
-                                  <div>${customer.membership_type ? customer.membership_type.name : 'N/A'}</div>
-                                </div>
-                                <div class="col-md-4">
-                                  <strong>Responsible Trainer:</strong>
-                                  <div>${customer.assigned_trainer ? customer.assigned_trainer.name : 'N/A'}</div>
-                                </div>
-                                <div class="col-4">
-                                  <strong>Health Notes:</strong>
-                                  <div class="border p-2 rounded ">
-                                    ${customer.health_notes || 'N/A'}
-                                  </div>
-                                </div>
+                            <div class="row mb-3">
+                              <div class="col-md-12">
+                                <strong>Health Notes:</strong>
+                                <div class="border rounded p-2">${customer.health_notes || 'N/A'}</div>
                               </div>
                             </div>
 

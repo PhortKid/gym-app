@@ -226,8 +226,15 @@ function fetchUsers() {
                     </div>
                     <div class="col mb-4">
                       <label class="form-label">Position</label>
-                      <input type="text" class="form-control" id="position${user.id}" value="${user.position}" />
-                    </div>
+                      
+                          <select  class="form-control" id="position${user.id}" >
+                            <option value="${user.position}">${user.position}</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Trainer">Trainer</option>
+                            <option value="Receptionist">Receptionist</option>
+                            <option value="Cleaner">Cleaner</option>
+                          </select>
+                      </div>
                   </div>
 
                   <div class="row">

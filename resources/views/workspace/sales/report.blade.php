@@ -72,8 +72,8 @@
                     <td>{{ \Carbon\Carbon::parse($sale->sale_date)->format('Y-m-d') }}</td>
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
-                    <td>{{ number_format($item->price, 2) }}</td>
-                    <td>{{ number_format($item->total, 2) }}</td>
+                    <td>{{ number_format($item->price, 2) }} TZS</td>
+                    <td>{{ number_format($item->total, 2) }} TZS</td>
                 </tr>
             @endforeach
         @endforeach

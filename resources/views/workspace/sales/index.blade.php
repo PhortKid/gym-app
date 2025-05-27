@@ -34,8 +34,8 @@
                 <td>{{ $sale->sale_date }}</td>
                 <td>{{ $item->product->name }}</td>
                 <td>{{ $item->quantity }}</td>
-                <td>{{ number_format($item->price, 2) }}</td>
-                <td>{{ number_format($item->total, 2) }}</td>
+                <td>{{ number_format($item->price, 2) }} TZS</td>
+                <td>{{ number_format($item->total, 2) }} TZS</td>
                 <td>
                     <form action="{{ route('sales.destroy', $sale) }}" method="POST" onsubmit="return confirm('Delete this sale?')" class="d-inline">
                         @csrf

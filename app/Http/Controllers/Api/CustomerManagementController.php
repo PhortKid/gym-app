@@ -144,7 +144,7 @@ class CustomerManagementController extends Controller
                 [
                 'member_id'=>$customer->id,
                 'payment_date'=>Carbon::now(),
-                'amount'=>$customer->amount,
+                'amount'=>$request->payed_amount,
                 'payment_method'=>$request->payment_method,
             ]);
 
