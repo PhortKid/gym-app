@@ -154,17 +154,7 @@
               </select>
             </div>
 
-                     <!-- insurance_category -->
-          <div class="mb-3">
-              <label class="form-label">Insurance Category</label>
-              <select name="insurance_category" id="insurance_category" class="form-control">
-              <option >-- Select Insurance Category --</option>
-                <option value="Jubilee">Jubilee</option>
-                <option value="Strategies">Strategies</option>
-                <option value="Assemble">Assemble</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+  
 
 
    
@@ -230,6 +220,18 @@
          <option value="Insurance">Insurance</option>
         </select>
       </div>
+
+      <div class="mb-3" id="insurance_category_wrapper" style="display: none;">
+  <label class="form-label">Insurance Category</label>
+  <select name="insurance_category" id="insurance_category" class="form-control">
+    <option>-- Select Insurance Category --</option>
+    <option value="Jubilee">Jubilee</option>
+    <option value="Strategies">Strategies</option>
+    <option value="Assemble">Assemble</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+
 
 
       <!-- Submit Buttons -->

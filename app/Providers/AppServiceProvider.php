@@ -46,6 +46,14 @@ class AppServiceProvider extends ServiceProvider
                         'password' => Hash::make('11111111'),
                         'position' => 'Admin',
                     ]);
+
+                    User::create([
+                        'name' => 'Mauna',
+                        'email' => 'mauna@gmail.com',
+                        'password' => Hash::make('11111111'),
+                        'position' => 'Trainer',
+                    ]);
+
                 }
             }
 

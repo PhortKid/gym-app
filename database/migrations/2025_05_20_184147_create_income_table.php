@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('category_id')->constrained('income_category')->onDelete('cascade');
             $table->decimal('amount_spent', 15, 2)->nullable();
-            $table->enum('payment_type', ['Cash', 'Mobile Money', 'Bank'])->nullable();
+            $table->String('payment_type');
             $table->timestamps();
         });
         

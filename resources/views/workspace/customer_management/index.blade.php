@@ -167,7 +167,21 @@ const paymentPlanSelect = document.getElementById('payment_plan');
   paymentPlanSelect.addEventListener('change', calculateAmountAndExpiry);
   startDateInput.addEventListener('change', calculateAmountAndExpiry);
 
+//calc amount
 
+
+//insuarance
+$(document).ready(function () {
+    $('#payment_method').on('change', function () {
+      if ($(this).val() === 'Insurance') {
+        $('#insurance_category_wrapper').show();
+      } else {
+        $('#insurance_category_wrapper').hide();
+        $('#insurance_category').val(''); // Optional: clear selection
+      }
+    });
+  });
+///end of ensu 
 
 
 //paid and not paid function
