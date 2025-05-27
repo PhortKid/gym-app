@@ -22,9 +22,9 @@
     <link rel="icon" type="image/x-icon" href="../asssets/img/favicon/favicon.ico" />
 
    <!-- DataTables CSS and JS -->
-    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link href="{{asset('assets/datatable/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <script src="{{asset('assets/datatable/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('assets/datatable/jquery.dataTables.min.js')}}"></script>
 
 
 
@@ -51,13 +51,13 @@
 
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
-    <link rel="stylesheet" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-  <link rel="stylesheet" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-  <link rel="stylesheet" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
-  <link rel="stylesheet" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="{{asset('assets/datatable/datatables.bootstrap5.css')}}" />
+  <link rel="stylesheet" href="{{asset('assets/datatable/responsive.bootstrap5.css')}}" />
+  <link rel="stylesheet" href="{{asset('assets/datatable/buttons.bootstrap5.css')}}" />
+  <link rel="stylesheet" href="{{asset('assets/datatable/flatpickr.css')}}" />
   <!-- Row Group CSS -->
-  <link rel="stylesheet" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
-
+  <link rel="stylesheet" href="{{asset('assets/datatable/rowgroup.bootstrap5.css')}}" />
+  
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -110,12 +110,31 @@
         .table-dark {
     background-color: #343a40 !important;
     color: white !important;
+    -webkit-print-color-adjust: exact; /* For Safari/Chrome */
+    print-color-adjust: exact; 
   }
 
   .table-info {
     background-color: #d1ecf1 !important;
     color: #0c5460 !important;
+    -webkit-print-color-adjust: exact; /* For Safari/Chrome */
+    print-color-adjust: exact; 
   }
+  .bg-primary {
+    background-color: #0d6efd !important;
+    -webkit-print-color-adjust: exact; /* For Safari/Chrome */
+    print-color-adjust: exact; /* For Firefox */
+    color: white !important;
+  }
+
+  /* Ongeza kwa classes nyingine kama unavyotaka */
+  .bg-success {
+    background-color: #198754 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
     }
 
 
@@ -309,27 +328,22 @@
 
        <!-- endbuild -->
 <!-- CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
 
-<!-- jQuery -->
-{{--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
 
-<!-- Chosen JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $(".chosen-select").chosen();
-  });
-</script>
+
+
+
+
+
 
        
     <!-- Vendors JS -->
-    <script src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="{{asset('assets/datatable/datatables-bootstrap5.js')}}"></script>
     <!-- Main JS -->
     <!-- Page JS -->
-    <script src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/js/tables-datatables-basic.js"></script>
+    <script src="{{asset('assets/datatable/tables-datatables-basic.js')}}"></script>
 
     <!-- Place this tag before closing body tag for github widget button. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async defer src="{{asset('assets/datatable/buttons.js')}}"></script>
   </body>
 </html>
