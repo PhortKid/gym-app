@@ -198,6 +198,33 @@
       </ul>
     </li>
 
+    
+      <!-- Sales -->
+      <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+        <div class="text-truncate">Stock & Sales</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="/products" class="menu-link">
+            <div class="text-truncate">Product</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/sales" class="menu-link">
+            <div class="text-truncate">Sales</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/sales/report" class="menu-link">
+            <div class="text-truncate">Report</div>
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+
 
 
     <!-- Financial -->

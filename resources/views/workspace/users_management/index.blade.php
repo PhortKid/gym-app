@@ -8,14 +8,12 @@
   <h5 class="mb-0">Staff</h5>
   <div class="d-flex align-items-center gap-2">
     <!-- Export Button Container -->
-    <div id="export-buttons" class="btn-group">
-     
-    </div>
 
     <!-- Add Button -->
     <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#add-new-record" aria-controls="add-new-record">
       <i class="icon-base bx bx-plus me-1"></i> Add
     </button>
+
   </div>
 </div>
 

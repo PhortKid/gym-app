@@ -14,6 +14,15 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\SystemInfoController;
 use App\Http\Controllers\SigninController;
+use App\Http\Controllers\ProductController;
+// routes/web.php
+
+use App\Http\Controllers\SaleController;
+
+Route::resource('sales', SaleController::class)->except(['show', 'edit', 'update']);
+Route::resource('products', ProductController::class)->except(['show']);
+Route::get('/sales/report', [SaleController::class, 'report'])->name('sales.report');
+
 
 Route::resource('system-info', SystemInfoController::class);
 
