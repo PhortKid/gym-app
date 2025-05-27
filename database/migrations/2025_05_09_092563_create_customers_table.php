@@ -17,6 +17,16 @@ return new class extends Migration
             $table->String('phone_number');
             $table->String('email')->nullable;
             $table->string('gender')->nullable();
+
+            $table->string('card_number')->nullable();
+            $table->string('body_weight')->nullable();
+            $table->string('body_height')->nullable();
+            $table->string('bmi')->nullable();
+            $table->string('membership_category')->nullable();
+            $table->string('programs')->nullable();
+            $table->string('exercise_intentions')->nullable();
+            $table->string('insurance_category')->nullable();
+
             $table->string('nationality')->nullable();
             $table->text('address')->nullable();
             $table->string('next_of_kin_name')->nullable();

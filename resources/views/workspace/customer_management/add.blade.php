@@ -99,18 +99,84 @@
         <input type="text" class="form-control" id="next_of_kin_phone" name="next_of_kin_phone">
       </div>
 
-
-
-
+         <!-- card_number-->
       <div class="mb-3">
-        <label class="form-label">Payment Status</label>
-        <select  class="form-control" id="payment_status" name="payment_status">
-          <option>-- Select Payment Plan --</option>
-          <option value="Full Paid">Full Paid</option>
-          <option value="Partial">Partial Paid</option>
-          <option value="Not Paid">Not Paid</option>
+        <label class="form-label">card_number</label>
+        <input type="text" class="form-control" id="card_number" name="card_number">
+      </div>
+
+      <!-- body_weight -->
+      <div class="mb-3">
+        <label class="form-label">Body Weight</label>
+        <input type="text" class="form-control" id="body_weight" name="body_weight">
+      </div>
+
+        <!-- body_weight -->
+        <div class="mb-3">
+        <label class="form-label">Body Height</label>
+        <input type="text" class="form-control" id="body_height" name="body_height">
+      </div>
+
+         <!-- membership_category -->
+         <div class="mb-3">
+        <label class="form-label">Membership Category</label>
+        <select name="membership_category" id="membership_category" class="form-control">
+          <option value="Individual">Individual</option>
+          <option value="Family">Family</option>
+          <option value="Group">Group</option>
+          <option value="Corporate">Corporate</option>
+          <option value="Vip">Vip</option>
+        </select>
+        
+      </div>
+
+      <!-- programs -->
+     <div class="mb-3">
+        <label class="form-label">Programs</label>
+        <select name="programs" id="programs" class="form-control">
+          <option value="Cardio">Cardio</option>
+          <option value="Aerobics">Aerobics</option>
+          <option value="Kata Box">Kata Box</option>
+          <option value="Surhet">Surhet</option>
+          <option value="Zumba">Zumba</option>
+          <option value="Tae Bo">Tae Bo</option>
+          <option value="Weight Lifting">Weight Lifting</option>
         </select>
       </div>
+
+         <!-- exercise_intentions -->
+          <div class="mb-3">
+              <label class="form-label">Exercise Intentions</label>
+              <select name="exercise_intentions" id="exercise_intentions" class="form-control">
+                <option value="Lose Body Weight">Lose Body Weight</option>
+                <option value="Maintain Weight">Maintain Weight</option>
+                <option value="Body Building">Body Building</option>
+              </select>
+            </div>
+
+                     <!-- insurance_category -->
+          <div class="mb-3">
+              <label class="form-label">Insurance Category</label>
+              <select name="insurance_category" id="insurance_category" class="form-control">
+                <option value="Jubilee">Jubilee</option>
+                <option value="Strategies">Strategies</option>
+                <option value="Assemble">Assemble</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+
+   
+
+              <div class="mb-3">
+                <label class="form-label">Payment Status</label>
+                <select  class="form-control" id="payment_status" name="payment_status">
+                  <option>-- Select Payment Plan --</option>
+                  <option value="Full Paid">Full Paid</option>
+                  <option value="Partial">Partial Paid</option>
+                  <option value="Not Paid">Not Paid</option>
+                </select>
+              </div>
 
       <!-- Health Notes -->
       <div class="mb-3">
@@ -129,11 +195,7 @@
         </select>
       </div>
 
-  {{--    <!-- Profile Photo -->
-      <div class="mb-3">
-        <label class="form-label">Profile Photo</label>
-        <input type="file" class="form-control" id="profile_photo" name="profile_photo" accept="image/*">
-      </div>--}}
+ 
 
       <!-- Preferred Workout Time -->
       <div class="mb-3">
@@ -164,6 +226,7 @@
          <option value="Cash">Cash</option>
          <option value="Mobile Money">Mobile Payment</option>
          <option value="Bank">Bank</option>
+         <option value="Insurance">Insurance</option>
         </select>
       </div>
 

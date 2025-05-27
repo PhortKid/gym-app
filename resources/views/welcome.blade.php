@@ -150,4 +150,61 @@
 
     </div>
 </div>
+
+
+
+<select id="filter" class="form-select mb-3">
+  <option value="week">This Week</option>
+  <option value="month">This Month</option>
+  <option value="year">This Year</option>
+</select>
+
+<canvas id="attendanceChart" height="100"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById('attendanceChart').getContext('2d');
+    let chart;
+
+    function loadChart(filter = 'week') {
+        fetch(`/attendance/chart?filter=${filter}`)
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(row => row.date);
+                const totals = data.map(row => row.total);
+
+                if (chart) chart.destroy();
+
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Attendance',
+                            data: totals,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Attendance by ' + filter.charAt(0).toUpperCase() + filter.slice(1)
+                            }
+                        }
+                    }
+                });
+            });
+    }
+
+    document.getElementById('filter').addEventListener('change', function () {
+        loadChart(this.value);
+    });
+
+    loadChart(); // initial
+});
+</script>
 @endsection

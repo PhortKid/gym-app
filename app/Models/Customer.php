@@ -28,7 +28,16 @@ class Customer extends Model
             'amount',
             'payed_amount',
             'payment_status',
-            'payment_method'
+            'payment_method',
+
+           'card_number',
+           'body_weight',
+           'body_height',
+           'bmi',
+           'membership_category',
+           'programs',
+           'exercise_intentions',
+           'insurance_category',
     ];
 
     public function assigned_trainer()

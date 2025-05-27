@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,11 +16,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\IncomeCategory;
 use App\Models\Income;
-use App\Services\BMIService;
 
 
 
-class CustomerManagementController extends Controller
+class MemberController extends Controller
 {
     protected $smsService;
 
@@ -91,12 +90,8 @@ class CustomerManagementController extends Controller
         return response()->json($customers);
     }*/
 
-    public function add(Request $request,BMIService $bmiService){
-      
-            $bmi = $bmiService->calculate($request->body_weight, $request->body_height);
-            $status = $bmiService->classify($bmi);
-  
-
+    public function add(Request $request){
+       
         $validator = Validator::make($request->all(), [
             'full_name' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
@@ -147,14 +142,14 @@ class CustomerManagementController extends Controller
             'card_number'=>$request->card_number,
             'body_weight'=>$request->body_weight,
             'body_height'=>$request->body_height,
-            'bmi'=>$status,
+            'bmi'=>$request->bmi,
             'membership_category'=>$request->membership_category,
             'programs'=>$request->programs,
             'exercise_intentions'=>$request->exercise_intentions,
             'insurance_category'=>$request->insurance_category,
         ]);
 
-           if($request->payed_amount != null){
+       
             $payment = Payment::create(
                 [
                 'member_id'=>$customer->id,
@@ -172,7 +167,7 @@ class CustomerManagementController extends Controller
                 'payment_type' => $request->payment_method,
             ]);
         
-            }
+       
 
         /*
         $qrCodeImage = QrCode::format('svg')->size(300)->generate($customer->id);

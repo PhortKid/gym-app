@@ -15,9 +15,34 @@ use App\Http\Controllers\PayController;
 use App\Http\Controllers\SystemInfoController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\ProductController;
-// routes/web.php
-
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\AttendanceChartController;
+
+use App\Services\BMIService;
+
+Route::get('calculate_bmi',
+
+function (BMIService $bmiService)
+{
+    $bmi = $bmiService->calculate(5, 20);
+    $status = $bmiService->classify($bmi);
+
+    return response()->json([
+        'bmi' => round($bmi, 2),
+        'status' => $status
+    ]);
+}
+
+
+
+
+
+);
+
+
+
+
+Route::get('/attendance/chart', [AttendanceChartController::class, 'attendanceChart']);
 
 Route::resource('sales', SaleController::class)->except(['show', 'edit', 'update']);
 Route::resource('products', ProductController::class)->except(['show']);
