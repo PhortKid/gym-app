@@ -74,6 +74,14 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
    <style>
+
+input, select, textarea {
+  border: 1px solid #ced4da !important; /* Default Bootstrap border color */
+  background-color: white !important;
+  appearance: none !important; /* Optional: remove browser default */
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
     body{
       font-family: 'Lato', sans-serif;
     }
