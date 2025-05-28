@@ -69,6 +69,7 @@ Route::view('users','workspace.users_management.index');
 Route::view('trainer','workspace.users_management.trainer');
 Route::view('paid_customer','workspace.customer_management.paid');
 Route::view('invoice','workspace.customer_management.invoice');
+Route::view('unpaid','workspace.customer_management.unpaid');
 Route::view('customer','workspace.customer_management.index');
 Route::view('membership_plan','workspace.membership_plan.index');
 Route::view('attendance','workspace.attendance.index');

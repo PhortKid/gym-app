@@ -80,6 +80,7 @@ Route::post('add_customer',[CustomerManagementController::class,'add']);
 Route::post('delete_customer/{id}', [CustomerManagementController::class, 'delete']);
 
 Route::get('invoice',[CustomerManagementController::class,'invoice']);
+Route::get('unpaid',[CustomerManagementController::class,'unpaid']);
 Route::get('paid_customer',[CustomerManagementController::class,'paid_customer']);
 
 Route::get('payment_report',[PaymentController::class,'report']);

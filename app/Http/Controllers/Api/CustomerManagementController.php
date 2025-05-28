@@ -63,6 +63,25 @@ class CustomerManagementController extends Controller
             return response()->json($customers);
         }
 
+        public function unpaid()
+        {
+            $customers = Customer::with('assigned_trainer')
+                ->withSum('payments', 'amount')
+                ->get()
+                ->filter(function ($customer) {
+                    return ($customer->payments_sum_amount ?? 0) == 0;
+                })
+                ->map(function ($customer) {
+                    $customer->paid_amount = 0;
+                    unset($customer->payments_sum_amount);
+                    return $customer;
+                })
+                ->values();
+        
+            return response()->json($customers);
+        }
+        
+
 
     public function paid_customer()
     {

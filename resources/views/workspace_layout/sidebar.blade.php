@@ -70,6 +70,11 @@
           </a>
         </li>
         <li class="menu-item">
+          <a href="/unpaid" class="menu-link">
+            <div class="text-truncate">Unpaid</div>
+          </a>
+        </li>
+        <li class="menu-item">
           <a href="/paid_customer" class="menu-link">
             <div class="text-truncate">Paid Members</div>
           </a>
