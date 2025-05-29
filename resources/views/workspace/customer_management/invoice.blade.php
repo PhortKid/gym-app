@@ -93,7 +93,7 @@
 
             </td>
                   <!-- View Customer Modal -->
-                          <div class="modal fade" id="viewCustomer${customer.id}" tabindex="-1" aria-hidden="true">
+                          <div contenteditable="true" class="modal fade" id="viewCustomer${customer.id}" tabindex="-1" aria-hidden="true">
                           
                             <div class="modal-dialog modal-xl" role="document">
                               <div class="modal-content">
