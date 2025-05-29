@@ -94,7 +94,9 @@ Route::get('/report/expense', [ExpenseReportController::class, 'show'])->name('e
 //report
 Route::get('/income_expense', [ReportController::class, 'income_expense'])->name('income_expense.report');
 
-Route::get('pay', [PayController::class, 'pay'])->name('pay');
+Route::post('/pay', [PayController::class, 'pay'])->name('pay');
+
+
 
 
 
@@ -106,12 +108,16 @@ Route::view('signin', 'signin')->name('signin');
 Route::post('/signin', [SigninController::class, 'login']);
 
 Route::get('/demo',function(){
-    $payment = Payment::where('member_id', '1')->first();
+        $length = 8;
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    
+    
 
-    if ($payment) {
-        $payment->amount = 3000;
-        $payment->save();
-    }
 
 });
 
@@ -145,6 +151,22 @@ Route::get('/myqrcode/{id}', function (Request $request,$id) {
 
     return redirect('/signin');  
 })->name('signout');
+
+
+Route::get('receipt/{id}',function(Request $request, $id){
+    $customer=Customer::where('card_number',$id)->first();
+
+    $receiptUrl = url("/receipt/{$customer->card_number}");
+    $qrCode = QrCode::size(200)
+        ->backgroundColor(255, 255, 255)
+        ->margin(1)
+        ->generate($receiptUrl);
+
+    return view('workspace.customer_management.thermal_receipt',compact('customer','qrCode'));
+});
+
+
+
 
 
 

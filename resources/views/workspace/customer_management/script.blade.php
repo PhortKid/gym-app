@@ -231,12 +231,12 @@
                           <div class="mb-3">
                             <label class="form-label">Full name</label>
                             <input type="text" class="form-control" value="${customer.full_name}" disabled>
-                            <input type="hidden"  value="${customer.id}" class="form-control"  id="pay_member_id">
+                            <input type="hidden"  value="${customer.id}" class="form-control"  id="pay_member_id${customer.id}">
                           </div>
 
                           <div class="mb-3">
                             <label class="form-label">Payment Type</label>
-                            <select id="pay_payment_method"  class="form-control" >
+                            <select id="pay_payment_method${customer.id}"  class="form-control" >
                               <option value="Cash">Cash</option>
                               <option value="Bank">Bank</option>
                               <option value="Mobile Money">Mobile Money</option>
@@ -247,13 +247,13 @@
                           <!-- Amount -->
                           <div class="mb-3">
                             <label class="form-label">Amount</label>
-                            <input type="number" class="form-control"  id="pay_amount">
+                            <input type="number" class="form-control"  id="pay_amount${customer.id}">
                           </div>
 
                           <!-- Date -->
                           <div class="mb-3">
                             <label class="form-label">Date</label>
-                            <input type="date" class="form-control"  id="pay_date">
+                            <input type="date" class="form-control"  id="pay_date${customer.id}">
                           </div>
 
                       
@@ -263,7 +263,7 @@
                             <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
                               Close
                             </button>
-                              <input type="submit" class="btn btn-secondary" onclick="pay()"  value="Pay" >
+                              <input type="submit" class="btn btn-secondary" onclick="pay(${customer.id})"  value="Pay" >
                             </div><!--footer -->
                         
                           
@@ -401,7 +401,7 @@ function  addCustomer(){
  const payment_method = document.getElementById('payment_method').value;
 
  //extra
- const card_number=document.getElementById('card_number').value;
+ //const card_number=document.getElementById('card_number').value;
  const body_weight=document.getElementById('body_weight').value;
  const body_height=document.getElementById('body_height').value;
  //const bmi=document.getElementById('bmi').value;
@@ -441,7 +441,7 @@ function  addCustomer(){
        payment_method,
 
        //extra
-       card_number,
+      // card_number,
        body_weight,
        body_height,
      //  bmi,
@@ -595,12 +595,12 @@ function deleteCustomer(id) {
 }
 
 
-function pay(){
+function pay(id){
  
- const pay_member_id = document.getElementById('pay_member_id').value;
- const pay_payment_method = document.getElementById('pay_payment_method').value;
- const pay_amount = document.getElementById('pay_amount').value;
- const pay_date = document.getElementById('pay_date').value;
+ const pay_member_id = document.getElementById(`pay_member_id${id}`).value;
+ const pay_payment_method = document.getElementById(`pay_payment_method${id}`).value;
+ const pay_amount = document.getElementById(`pay_amount${id}`).value;
+ const pay_date = document.getElementById(`pay_date${id}`).value;
 
  
  fetch("/api/add_payment", {

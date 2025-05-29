@@ -95,12 +95,12 @@
         <label class="form-label">Next of Kin Phone</label>
         <input type="text" class="form-control" id="next_of_kin_phone" name="next_of_kin_phone">
       </div>
-
+{{--
          <!-- card_number-->
       <div class="mb-3">
         <label class="form-label">Card Number</label>
         <input type="text" class="form-control" id="card_number" name="card_number">
-      </div>
+      </div>--}}
 
       <!-- body_weight -->
       <div class="mb-3">

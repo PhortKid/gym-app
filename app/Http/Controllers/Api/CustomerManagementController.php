@@ -139,6 +139,17 @@ class CustomerManagementController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
+        function generateRandomAlphanumeric($length = 8) {
+            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, strlen($characters) - 1)];
+            }
+            return $randomString;
+        }
+        
+       
+
         $customer =    Customer::create(
             [
             'full_name'=>$request->full_name,
@@ -163,7 +174,7 @@ class CustomerManagementController extends Controller
             'payment_status'=>$request->payment_status,
 
             //last
-            'card_number'=>$request->card_number,
+            'card_number'=>generateRandomAlphanumeric(),
             'body_weight'=>$request->body_weight,
             'body_height'=>$request->body_height,
             'bmi'=>$status,

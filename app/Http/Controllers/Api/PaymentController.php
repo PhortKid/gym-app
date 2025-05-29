@@ -17,10 +17,11 @@ class PaymentController extends Controller
         return response()->json(Payment::all());
     }
 
+
     public function add_payment(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
+       /* $validator = Validator::make($request->all(), [
             'pay_member_id' => 'required',
             'pay_payment_method' => 'required',
             'pay_amount' => 'required',
@@ -29,7 +30,7 @@ class PaymentController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
-        }
+        }*/
 
         $payments=Payment::create([
         'member_id'=>$request->pay_member_id,

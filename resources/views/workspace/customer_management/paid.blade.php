@@ -79,6 +79,9 @@
             <div class="d-flex align-items-center">
             <a href="#" class="text-info me-3" data-bs-toggle="modal" data-bs-target="#viewCustomer${customer.id}">
               <i class="bx bx-show me-1"></i> View
+            </a> |
+            <a href="/receipt/${customer.card_number}" class="text-info me-3" 
+              <i class="bx bx-show me-1"></i>Receipt
             </a>
           </div>
 
