@@ -257,6 +257,11 @@
             <div class="text-truncate">Financial Report</div>
           </a>
         </li>-->
+        <li class="menu-item">
+          <a href="/financial_summary" class="menu-link">
+            <div class="text-truncate">Financial Summary Report</div>
+          </a>
+        </li>
 
         <li class="menu-item">
           <a href="/income_expense" class="menu-link">
