@@ -70,6 +70,11 @@
           </a>
         </li>
         <li class="menu-item">
+          <a href="/invoices" class="menu-link">
+            <div class="text-truncate">Manual Invoice</div>
+          </a>
+        </li>
+        <li class="menu-item">
           <a href="/unpaid" class="menu-link">
             <div class="text-truncate">Unpaid</div>
           </a>

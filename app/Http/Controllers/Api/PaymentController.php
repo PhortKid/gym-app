@@ -52,10 +52,11 @@ class PaymentController extends Controller
        return response()->json(['status' => 'success', 'message' => 'Payment Added']);
     }
 
-public function report(Request $request)
-{
-    
-        $filter = $request->input('filter', 'daily'); // default daily
+    public function report(Request $request)
+    {
+        $filter = $request->input('filter', 'daily');
+        $month = $request->input('month'); // Optional: 1 to 12
+        $year = $request->input('year');   // Optional: e.g. 2024
     
         if ($filter === 'daily') {
             $startDate = Carbon::today()->startOfDay();
@@ -66,6 +67,12 @@ public function report(Request $request)
         } elseif ($filter === 'yearly') {
             $startDate = Carbon::now()->startOfYear();
             $endDate = Carbon::now()->endOfYear();
+        } elseif ($filter === 'custom') {
+            $month = $month ?? Carbon::now()->month;
+            $year = $year ?? Carbon::now()->year;
+    
+            $startDate = Carbon::createFromDate($year, $month, 1)->startOfDay();
+            $endDate = Carbon::createFromDate($year, $month, 1)->endOfMonth()->endOfDay();
         } else {
             $startDate = Carbon::today()->startOfDay();
             $endDate = Carbon::today()->endOfDay();
@@ -77,7 +84,7 @@ public function report(Request $request)
             ->get();
     
         return response()->json($report);
+    }
     
-}
 
 }

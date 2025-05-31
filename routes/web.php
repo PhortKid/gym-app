@@ -22,6 +22,12 @@ use App\Services\BMIService;
 
 
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\InvoiceController;
+
+Route::resource('invoices', InvoiceController::class);
+
+
+
     Route::get('/fix-membership-type', function () {
     DB::statement('ALTER TABLE customers DROP FOREIGN KEY customers_membership_type_id_foreign');
     DB::statement('ALTER TABLE customers MODIFY membership_type_id BIGINT UNSIGNED NULL');
@@ -108,17 +114,9 @@ Route::view('signin', 'signin')->name('signin');
 Route::post('/signin', [SigninController::class, 'login']);
 
 Route::get('/demo',function(){
-        $length = 8;
-        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, strlen($characters) - 1)];
-        }
-        return $randomString;
-    
     
 
-
+return  Payment::all();
 });
 
 
