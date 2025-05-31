@@ -11,6 +11,7 @@ use App\Models\ExpenseCategory;
 use App\Models\Income;
 use App\Models\Expense;
 use App\Models\Customer;
+use App\Models\Product;
 
 
 class ReportController extends Controller
@@ -157,5 +158,26 @@ class ReportController extends Controller
 
 
 }
+
+
+        public function productReport()
+        {
+            $products = Product::with('saleItems')->get();
+
+            $report = $products->map(function ($product) {
+                $totalSold = $product->saleItems->sum('quantity');
+                $totalRevenue = $product->saleItems->sum('total'); // or 'quantity * price'
+
+                return [
+                    'name' => $product->name,
+                    'stock_quantity' => $product->stock_quantity,
+                    'min_stock_level' => $product->min_stock_level,
+                    'total_sold' => $totalSold,
+                    'total_revenue' => $totalRevenue,
+                ];
+            });
+
+            return view('workspace.reports.product-report', compact('report'));
+        }
 
 }
