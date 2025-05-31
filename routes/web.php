@@ -88,6 +88,8 @@ Route::view('expense_category','workspace.expense_category.index');
 Route::view('payment_report','workspace.reports.payment_report');
 
 
+Route::get('/financial_summary', [ReportController::class,'financialSummary'])->name('report.financial_summary');
+
 Route::resource('/expected_incomes', ExpectedIncomeController::class);
 Route::resource('/projected_expenses', ProjectedExpenseController::class);
 

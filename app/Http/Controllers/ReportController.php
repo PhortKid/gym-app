@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\ExpectedIncome;
 use App\Models\ProjectedExpense;
+use App\Models\IncomeCategory;
+use App\Models\ExpenseCategory;
+use App\Models\Income;
+use App\Models\Expense;
+use App\Models\Customer;
+
 
 class ReportController extends Controller
 {
@@ -96,5 +102,60 @@ class ReportController extends Controller
             'netProfit'
         ));
     }
+
+
+
+    public function financialSummary()
+{
+      // All income categories with their incomes
+      $incomeCategories = IncomeCategory::with('incomes')->get();
+
+      // All expense categories with their expenses
+      $expenseCategories = ExpenseCategory::with('expenses')->get();
+  
+      // Total expected income (sum of all incomes)
+      $totalIncome = $incomeCategories->flatMap->incomes->sum('amount');
+  
+      // Total expenses
+      $totalExpenses = $expenseCategories->flatMap->expenses->sum('amount');
+  
+      // Current month range
+      $startOfMonth = Carbon::now()->startOfMonth();
+      $endOfMonth = Carbon::now()->endOfMonth();
+  
+      // CURRENT DEBTS: Customers with start_date in current month and not fully paid
+      $currentDebts = Customer::whereBetween('start_date', [$startOfMonth, $endOfMonth])
+          ->whereColumn('amount', '>', 'payed_amount')
+          ->get()
+          ->sum(function ($customer) {
+              return $customer->amount - $customer->payed_amount;
+          });
+  
+      // PREVIOUS DEBTS: Customers before current month with unpaid balances
+      $previousDebts = Customer::where('start_date', '<', $startOfMonth)
+          ->whereColumn('amount', '>', 'payed_amount')
+          ->get()
+          ->sum(function ($customer) {
+              return $customer->amount - $customer->payed_amount;
+          });
+  
+    
+  
+      // Net Position = Income - Expenses
+      $netPosition = $totalIncome - $totalExpenses;
+  
+      return view('workspace.reports.financial_summary', [
+          'incomeCategories' => $incomeCategories,
+          'expenseCategories' => $expenseCategories,
+          'totalIncome' => $totalIncome,
+          'totalExpenses' => $totalExpenses,
+          'currentDebts' => $currentDebts,
+          'previousDebts' => $previousDebts,
+         
+          'netPosition' => $netPosition,
+      ]);
+
+
+}
 
 }
